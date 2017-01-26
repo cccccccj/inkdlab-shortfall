@@ -17,7 +17,7 @@ var HomeComponent = (function () {
     HomeComponent.prototype.ngOnInit = function () {
         // Get reference to login socket
         try {
-            this.socket = io.connect('http://inkdlab-shortfall.herokuapp.com/home');
+            this.socket = io.connect();
         }
         catch (e) {
             alert('Sorry, we couldn\'t connect. Please try again later \n\n' + e);
