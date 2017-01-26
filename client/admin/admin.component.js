@@ -27,7 +27,7 @@ var AdminComponent = (function () {
         var _this = this;
         // Get reference to game socket
         try {
-            this.ds.socket = io.connect('http://localhost:8080/admin');
+            this.ds.socket = io.connect('/admin');
         }
         catch (e) {
             alert('Sorry, we couldn\'t connect. Please try again later \n\n' + e);
