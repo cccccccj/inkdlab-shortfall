@@ -11,6 +11,9 @@ import { ChatWindow } from 'shared/chat/chat.component';
 
 import { ChatTab } from 'shared/chat/chat-tab.component';
 
+import { ChatButton } from 'shared/chat/chat-button.component';
+import { OnlineStatus } from 'shared/chat/online-status.component';
+
 import { DataService } from 'shared/data.service';
 
 @NgModule({
@@ -22,6 +25,7 @@ import { DataService } from 'shared/data.service';
       GameSettingsWindow,
       ChatWindow, 
       ChatTab, 
+      ChatButton,
       OnlineStatus
     ],
   providers: [ DataService ],

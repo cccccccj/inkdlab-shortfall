@@ -14,6 +14,8 @@ var event_manager_component_1 = require("admin/event-manager/event-manager.compo
 var game_settings_component_1 = require("admin/game-settings/game-settings.component");
 var chat_component_1 = require("shared/chat/chat.component");
 var chat_tab_component_1 = require("shared/chat/chat-tab.component");
+var chat_button_component_1 = require("shared/chat/chat-button.component");
+var online_status_component_1 = require("shared/chat/online-status.component");
 var data_service_1 = require("shared/data.service");
 var AdminModule = (function () {
     function AdminModule() {
@@ -30,7 +32,8 @@ AdminModule = __decorate([
             game_settings_component_1.GameSettingsWindow,
             chat_component_1.ChatWindow,
             chat_tab_component_1.ChatTab,
-            OnlineStatus
+            chat_button_component_1.ChatButton,
+            online_status_component_1.OnlineStatus
         ],
         providers: [data_service_1.DataService],
         bootstrap: [admin_component_1.AdminComponent]
