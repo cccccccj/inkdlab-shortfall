@@ -17,7 +17,7 @@ var HomeComponent = (function () {
     HomeComponent.prototype.ngOnInit = function () {
         // Get reference to login socket
         try {
-            this.socket = io.connect();
+            this.socket = io.connect('/home');
         }
         catch (e) {
             alert('Sorry, we couldn\'t connect. Please try again later \n\n' + e);
