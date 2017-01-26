@@ -9,7 +9,7 @@ var io = require('socket.io').listen(server);
 var mongodb = require('mongodb');
 var MongoClient = mongodb.MongoClient;
 //var mongoURI = 'mongodb://localhost:27017/shortfall';
-var mongoURI = 'mongodb://localhost:27017/shortfall';
+var mongoURI = 'mongodb://heroku_s1ccnbfm:a8gume9k8ua7fijmdpjkfs0hr4@ds131109.mlab.com:31109/heroku_s1ccnbfm';
 
 app.set('port', (process.env.PORT || 8080));
 
