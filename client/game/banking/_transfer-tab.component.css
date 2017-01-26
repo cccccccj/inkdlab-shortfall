@@ -1,0 +1,64 @@
+.textColumn {
+    min-width: 170px;
+}
+
+.valueColumn {
+    min-width: 280px;
+}
+
+#confirmText {
+    font-size: 0.9em;
+    color: brown;
+}
+
+table {
+    font-size: 0.9em;
+}
+
+.noteBox {
+    width: 200px;
+}
+
+.online, .offline, .computer { 
+    width: 10px;
+    height: 10px;
+}
+
+#confirmOverlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: 0px;
+    background-color: rgba(30,30,30,0.7);
+}
+
+#confirmBox {
+    min-width: 250px;
+    min-height: 60px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: floralwhite;
+    border-radius: 5px;
+    font-size: 0.8em;
+    padding: 10px;
+    text-align: center;
+}
+
+.chatButton {
+    background-color: #BAA29B;
+    background-image: url('shared/images/chat.png');
+    background-size: 20px 16px;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 40px;
+    height: 20px;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+}
+
+input[type="button"] {
+    cursor: pointer;
+}

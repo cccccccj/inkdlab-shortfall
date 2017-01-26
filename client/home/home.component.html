@@ -1,0 +1,33 @@
+<div class="wrapper">
+    <div class="home-form">
+
+        <!-- Heading -->
+        <div class="home-form__heading">
+            Welcome to Shortfall 3.5
+        </div>
+            
+        <div *ngIf = "!activeTab" class="home-form__body">
+
+            <!-- Signup -->
+            <div class="home-form__left">
+                <button class="btn--login" (click) = "changeTab('login')">Login</button>              
+            </div>
+              
+            <!-- Login -->
+            <div class="home-form__right">
+                <button class="btn--signup" (click) = "changeTab('signup')">Create account</button> 
+            </div>     
+        </div>
+        
+        <!-- Tabs -->
+        <ul class="list-home" *ngIf = "activeTab">
+            <li class="list-home__item" [class.active] = "activeTab == 'login'" (click) = "changeTab('login')">Login</li> or <li  class="list-home__item" [class.active] = "activeTab == 'signup'" (click) = "changeTab('signup')">Create an account</li>
+        </ul>
+
+        <!-- Tab Contents -->
+        <login [class.hidden] = "activeTab != 'login'" [socket] = socket></login>
+        <signup [class.hidden] = "activeTab != 'signup'" [socket] = socket></signup>
+      
+    </div>
+</div>
+

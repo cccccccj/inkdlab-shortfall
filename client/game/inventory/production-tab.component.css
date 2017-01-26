@@ -1,0 +1,70 @@
+#productionDiv {
+    border: 1px solid black;
+    max-width: 90%;
+    text-align: center;
+    margin: auto auto 60px;
+    padding-bottom: 10px;
+}
+
+#productionDiv table {
+    width: 100%;
+}
+
+#partsInventoryTable {
+    border: 1px solid black;
+    max-width: 45%;
+    min-width: 330px;
+    float: left;
+}
+
+#systemInventoryTable {
+    border: 1px solid black;
+    max-width: 45%;
+    min-width: 330px;
+    float: right;
+}
+
+td, th {
+    text-align: center;
+    font-size: 0.9em;
+    padding: 5px;
+}
+
+.subheading {
+    font-size: 0.6em;
+}
+
+.mechColumn {
+    min-width: 50px;
+}
+
+.greenColumn {
+    min-width: 50px;
+}
+
+.availColumn {
+    min-width: 50px;
+}
+
+.projColumn {
+    min-width: 50px;
+}
+
+.partRecord {
+    cursor: pointer;
+}
+
+.partRecord:hover {
+    background-color: beige;
+}
+
+.selected, .selected:hover {
+    background-color: bisque;
+    cursor: default;
+}
+
+#quantityBox {
+    width: 60px;
+}
+
+

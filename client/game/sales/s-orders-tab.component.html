@@ -1,0 +1,152 @@
+<div class = "s-orders-tab-component container" id = "container">
+    <div  class = "s-orders-tab-component top" id = "top">
+
+        <!-- Part -->
+        <span class = "top__title top__title--grey-text"><b>System Part:</b> {{part}}</span>
+
+        <!-- Filters -->
+        <span class = "s-orders-tab-component top__filter-container" id = "filter">
+            Company:
+            <select class = "s-orders-tab-component filter-container__parts" [(ngModel)] = "filterCompany" aria-label = "Filter by company">
+                <option value = "All">All</option>
+                <option *ngFor = "let company of purchaseCompanies" [value] = "company">{{company}}</option>
+            </select>
+            Status: 
+            <select class = "s-orders-tab-component filter-container__status" [(ngModel)] = "filterStatus" aria-label = "Filter by order status">
+                <option value = "All">All</option>
+                <option value = "Pending">Pending</option>
+                <option value = "Overdue">Overdue</option>
+                <option value = "Fulfilled">Fulfilled</option>
+            </select>
+        </span> 
+    </div>
+
+    <table class = "s-orders-tab-component tableone">
+        <!-- Headings -->
+        <thead class = "s-orders-tab-component tableone__header">
+            <tr>
+                <th rowspan = "2" colspan = "2">Company</th>
+                <th class = "s-orders-tab-component roundColumn tableone__cell-header">Round</th>
+                <th class = "s-orders-tab-component quantityColumn tableone__cell-header">Quantity</th>
+                <th class = "s-orders-tab-component mechQualityColumn tableone__cell-header">Mechanical Quality</th>
+                <th class = "s-orders-tab-component greenScoreColumn tableone__cell-header">Green Score</th>
+                <th class = "s-orders-tab-component statusColumn tableone__cell-header" rowspan = "2">Status</th>
+            </tr>
+            <tr>
+                <th class = "s-orders-tab-component subheading tableone__cell-header">(Due)</th>
+                <th colspan = "3" class = "s-orders-tab-component subheading tableone__cell-header">(Delivered/Expected)</th>
+                
+            </tr>
+        </thead>
+        
+        <tbody *ngFor = "let sale of saleOrders; let i = index" [class.pending] = "sale.delivered.status != 'Fulfilled' && sale.dueRound >= round" [class.overdue] = "sale.delivered.status != 'Fulfilled' && sale.dueRound < round" [class.fulfilled] = "sale.delivered.status == 'Fulfilled'" [class.hidden] = "!setFilterCompany(sale.purchaseCompany) || !setFilterStatus(sale.delivered.status, sale.dueRound)">
+
+            <!-- Sale Order -->
+            <tr class = "s-orders-tab-component mainRow">
+
+                <!-- Company -->
+                <td class = "s-orders-tab-component companyColumn">{{sale.purchaseCompany}}</td>
+
+                <!-- Chat -->
+                <td class = "s-orders-tab-component chatColumn">
+                    <chat-button [company] = "sale.purchaseCompany"></chat-button>
+                </td>
+                
+                <!-- Round -->
+                <td>
+                    <!-- unfulfilled/partially fulfilled -->
+                    <span  *ngIf = "sale.delivered.status != 'Fulfilled'">
+                        <span *ngIf = "sale.dueRound == round">This round</span>
+                        <span *ngIf = "sale.dueRound == round + 1">Next round</span>
+                        <span *ngIf = "sale.dueRound < round">
+                            Overdue {{round - sale.dueRound}} round
+                            <span *ngIf = "round - sale.dueRound > 1">s</span>
+                        </span>
+                    </span>
+                    <!-- fulfilled -->
+                    <span *ngIf = "sale.delivered.status == 'Fulfilled'">-</span>
+                </td>
+                
+                <!-- Quantity -->
+                <td>
+                    {{sale.delivered.quantity | number}}/{{sale.quantity | number}}
+                    <br>
+                    <input *ngIf = "sale.delivered.status != 'Fulfilled' && sale.delivered.quantity + sale.shippedQuantity < sale.quantity" class = "s-orders-tab-component quantityBox tableone__cell-input" type = "number"  [(ngModel)] = "shipQuantity[i]" min = "0" [max] = "sale.quantity - sale.delivered.quantity - sale.shippedQuantity" [step] = "quantityStepValue" (blur) = "roundQuantity(i)" (keyup.enter) = "roundQuantity(i)" aria-label = "Quantity">
+                </td>
+
+                <!-- Mechanical Quality -->
+                <td>
+                    {{sale.delivered.mechQuality}}/{{sale.mechQuality}}
+                    <br>
+                    <select *ngIf = "sale.delivered.status != 'Fulfilled' && sale.delivered.quantity + sale.shippedQuantity < sale.quantity" [(ngModel)] = "shipMechQuality[i]" aria-label = "Mechanical Quality" class = "p-negotiations-tab-component tableone__filter-cell">
+                        <option value = "A" [selected] = "sale.mechQuality == 'A'">A</option>
+                        <option *ngIf = "sale.mechQuality == 'B' || sale.mechQuality == 'C' || sale.mechQuality == 'D'" [selected] = "sale.mechQuality == 'B'">B</option>
+                        <option *ngIf = "sale.mechQuality == 'C' || sale.mechQuality == 'D'" value = "C" [selected] = "sale.mechQuality == 'C'">C</option>
+                        <option *ngIf = "sale.mechQuality == 'D'" value = "D" [selected] = "sale.mechQuality == 'D'">D</option>
+                    </select>
+                </td>
+                
+                <!-- Green Score -->
+                <td>
+                    {{sale.delivered.greenScore}}/{{sale.greenScore}}
+                    <br>
+                    <input *ngIf = "sale.delivered.status != 'Fulfilled' && sale.delivered.quantity + sale.shippedQuantity < sale.quantity" type = "number"  [(ngModel)] = "shipGreenScore[i]" [min] = "sale.greenScore" max = "100" [step] = "greenScoreStepValue" (blur) = "roundGreenScore(i)" (keyup.enter) = "roundGreenScore(i)" aria-label = "Green Score" class = "s-orders-tab-component greenBox tableone__cell-input">
+                </td>
+                
+                <!-- Status -->
+                <td>
+                    <!-- pending -->
+                    <span  *ngIf = "sale.delivered.status != 'Fulfilled' && sale.dueRound >= round">
+                        Pending - {{sale.delivered.status}}
+                    </span>
+                    <!-- overdue -->
+                    <span  *ngIf = "sale.delivered.status != 'Fulfilled' && sale.dueRound < round">
+                        Overdue - {{sale.delivered.status}}
+                    </span>
+                    <!-- fulfilled -->
+                    <span  *ngIf = "sale.delivered.status == 'Fulfilled'">
+                        {{sale.delivered.status}} - 
+                        <span *ngIf = "sale.dueRound == sale.delivered.round">On Time</span>
+                        <span *ngIf = "sale.dueRound > sale.delivered.round">Early</span>
+                        <span *ngIf = "sale.dueRound < sale.delivered.round">Late</span>
+                    </span>
+                    
+                    <!-- Details Toggle Button -->
+                    <span *ngIf = "sale.shipmentRecord.length > 0">
+                        <input class = "s-orders-tab-component btn__table" type = "button" [class.showButton] = "hideDetails[i]" [class.hideButton] = "!hideDetails[i]" (click) = "toggleDetails(i)" attr.aria-label = "{{hideDetails[i]?'Show':'Hide'}} order details">
+                    </span>
+                    
+                    <!-- Ship Button -->
+                    <br><input *ngIf = "sale.delivered.status != 'Fulfilled' && sale.delivered.quantity + sale.shippedQuantity < sale.quantity" type = "button" value = "Ship" [disabled] = "shipQuantity[i] <= 0 || shipQuantity[i] > sale.quantity - sale.delivered.quantity - sale.shippedQuantity" (click) = "onShip(i)" aria-label = "Send shipment" class = "s-orders-tab-component btn__table">
+                </td> 
+            </tr>
+            
+            <!-- Delivery Details -->
+            <tr *ngFor = "let record of sale.shipmentRecord; let j = index" class = "s-orders-tab-component subRow" [class.hidden] = "hideDetails[i]">
+                <td colspan = "2"></td>
+                <!-- Round -->
+                <td>{{record.round}}</td>
+                <!-- Quantity -->
+                <td>{{record.quantity}}</td>
+                <!-- Mechanical Quality -->
+                <td>{{record.mechQuality}}</td>
+                <!-- Green Score -->
+                <td>{{record.greenScore}}</td>
+                <td>
+                    <!-- Status -->
+                    <span *ngIf = "sale.dueRound == record.round">On time</span>
+                    <span *ngIf = "sale.dueRound > record.round">Early</span>
+                    <span *ngIf = "sale.dueRound < record.round">Late</span>
+                    shipment - 
+                    <span *ngIf = "record.status != 'shipped'">
+                        {{record.status}}
+                    </span>
+                    <!-- Cancel Button -->
+                    <span *ngIf = "record.status == 'shipped'">
+                        <input class = "s-orders-tab-component btn__table" type = "button" value = "Cancel" (click) = "onCancel(i, j)" aria-label = "Cancel shipment">
+                    </span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

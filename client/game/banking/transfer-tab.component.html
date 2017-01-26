@@ -1,0 +1,45 @@
+<div class = "transfer-tab-component container" id = "container">
+
+    <form class = "transfer-tab-component form-default" id = "form">
+
+        <!-- Transfer Amount -->
+        <div class = "transfer-tab-component form-default--aligned">
+            <label for = "amount" class = "form-default__label">Transfer amount:</label>
+            $<input class = "transfer-tab-component form-default__input" type = "number" id = "amount" [(ngModel)] = "transferAmount" name = "amount" min = "0" [max] = "balance" [step] = "stepValue" (blur) = "roundAmount()" (keyup.enter) = "roundAmount()">
+        </div>
+        
+        <!-- Company -->
+        <div class = "transfer-tab-component form-default--aligned">
+            <label for = "toCompany" class = "form-default__label">To company:</label>
+            <select class = "transfer-tab-component form-default__filter" id = "toCompany" [(ngModel)] = "transferCompany" name = "toCompany">
+                <option *ngFor = "let company of otherCompanies" [value] = "company">{{company}}</option>
+            </select>  
+            
+            <chat-button [company] = "transferCompany"></chat-button>
+        </div>
+        
+        <!-- Note -->
+        <div class = "transfer-tab-component form-default--aligned">
+            <label for = "note" class = "form-default__label">Transaction note:</label>
+            <input type = "text" id = "note" class = "transfer-tab-component form-default__input" [(ngModel)] = "note" name = "note">
+        </div>
+        
+        <!-- Button -->
+        <div class = "transfer-tab-component form-default--aligned">
+            <input class = "transfer-tab-component btn--action" type = "button" value = "Transfer Funds" [disabled] = "transferAmount < 1 || transferAmount > balance" (click) = "onTransfer()" aria-label = "Transfer funds">
+        </div>
+        
+        <!-- Confirmation -->
+        <div *ngIf = "confirming" class = "confirmOverlay">
+            <div class = "confirmBox">
+                Transfer <b>${{transferAmount | number}}</b> to {{transferCompany}}?<br><br>
+                <span *ngIf = "!confirmation">
+                    <input type = "button" value = "Confirm" (click) = "onConfirm()" aria-label = "Confirm transfer">
+                    <input type = "button" value = "Cancel" (click) = "onCancel()" aria-label = "Cancel transfer">
+                </span>
+                <span *ngIf = "confirmation" class = "confirmText">Funds Transferred!</span>
+            </div>
+        </div>
+    </form>
+</div>
+

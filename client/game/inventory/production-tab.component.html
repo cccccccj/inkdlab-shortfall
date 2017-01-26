@@ -1,0 +1,95 @@
+<div class = "production-tab-component container" id = "container">
+    <!-- Production -->
+    <div id = "productionDiv">
+        <table id = "productionTable"> 
+            <thead>
+                <!-- Headings -->
+                <tr>
+                    <th class = "mechColumn">Mechanical Quality</th>
+                    <th class = "greenColumn">Green Score</th>
+                    <th class = "quantityColumn">Quantity</th>
+                    <th colspan = "2" class = "costColumn">Cost</th>
+                    <th class = "wasteColumn">Waste</th>
+                </tr>
+                <!-- Subheadings -->
+                <tr>
+                    <th colspan = "2"></th>
+                    <th class = "subheading">Selected/Max</th>
+                    <th class = "subheading">Per unit</th>
+                    <th class = "subheading">Total</th>
+                    <th class = "subheading">Recyclable/Total</th>
+                </tr>
+            </thead>
+            <!-- Current Production -->
+            <tbody>
+                <tr>
+                    <td>{{production.mechQuality}}</td>
+                    <td>{{production.greenScore}}</td>
+                    <td>
+                        <span *ngIf = "production.maxQuantity == 0">{{production.quantity}}</span>
+                        <input *ngIf = "production.maxQuantity != 0" type = "number" [(ngModel)] = "production.quantity" [min] = "quantityStepValue" [max] = "production.maxQuantity" [step] = "quantityStepValue" (blur) = "roundQuantity()" (keyup.enter) = "roundQuantity()" aria-label = "Selected Quantity" id = "quantityBox">/{{production.maxQuantity}}</td>
+                    <td>{{production.cost}}</td>
+                    <td>{{production.cost * production.quantity}}</td>
+                    <td>{{production.waste}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- Build Button -->
+        <button (click) = "onBuild()">Build</button>
+    </div>
+    
+    <!-- Parts Inventory -->
+    <table id = "partsInventoryTable">
+        <caption>Parts Inventory</caption>
+        <!-- Headings -->
+        <thead>
+            <tr>
+                <th id = "mechP" class = "mechColumn">Mechanical Quality</th>
+                <th id = "greenP" class = "greenColumn">Green Score</th>
+                <th id = "availP" class = "availColumn">Available Quantity</th>
+                <th id = "projP" class = "projColumn">Projected Quantity</th>
+            </tr>
+        </thead>
+        <!-- Parts -->
+        <tbody *ngFor = "let part of parts; let i = index">
+            <!-- Heading -->
+            <tr>
+                <th  colspan = "4" [id] = "'part' + i">{{part}}</th>
+            </tr>
+            <!-- Records -->
+            <tr *ngIf = "ds.companyData.inventory[part].length == 0">
+                <td>-</td><td>-</td><td>-</td><td>-</td>
+            </tr>
+            <tr *ngFor = "let record of ds.companyData.inventory[part]; let j = index;" (click) = "selectRecord(part, j)" class = "partRecord" [class.selected] = "selectedIndex[part] == j">
+                <td headers = "mech {{'part'+i}}">{{record.mechQuality}}</td>
+                <td headers = "green {{'part'+i}}">{{record.greenScore}}</td>
+                <td headers = "avail {{'part'+i}}">{{record.quantity}}</td>
+                <td headers = "proj {{'part'+i}}"></td>
+            </tr>
+        </tbody>
+    </table>
+    
+    
+    <!-- Sysytem Inventory -->
+    <table id = "systemInventoryTable">
+        <caption>System Inventory - {{system}}</caption>
+        <!-- Headings -->
+        <thead>
+            <tr>
+                <th class = "mechColumn">Mechanical Quality</th>
+                <th class = "greenColumn">Green Score</th>
+                <th class = "availColumn">Available Quantity</th>
+                <th class = "projColumn">Projected Quantity</th>
+            </tr>
+        </thead>
+        <!-- Records -->
+        <tbody>
+            <tr *ngFor = "let record of ds.companyData.inventory[system]">
+                <td>{{record.mechQuality}}</td>
+                <td>{{record.greenScore}}</td>
+                <td>{{record.quantity}}</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

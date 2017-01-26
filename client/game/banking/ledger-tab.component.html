@@ -1,0 +1,68 @@
+<div class = "ledger-tab-component container" id = "container">
+
+    <!-- Filters -->
+    <div class = "ledger-tab-component top">
+        <span class = "ledger-tab-component top__filter-container" id = "filter">
+            Company: 
+            <select class = "ledger-tab-component filter-container__companies" [(ngModel)] = "filterCompany" aria-label = "Filter by company">
+                <option value = "All">All</option>
+                <option *ngFor = "let company of otherCompanies" [value] = "company">{{company}}</option>
+            </select>
+            Type: 
+            <select class = "ledger-tab-component filter-container__status" [(ngModel)] = "filterType" aria-label = "Filter by transaction type">
+                <option value = "All">All</option>
+                <option value = "Sale">Sale</option>
+                <option value = "Purchase">Purchase</option>
+                <option value = "Production">Production</option>
+                <option value = "Transfer">Transfer</option>
+            </select>
+        </span>
+    </div>
+
+    <table class = "tableone">
+        <!-- Headings -->
+        <thead class = "tableone__header">
+            <tr>
+                <th class = "ledger-tab-component tableone__cell-header companyColumn">From/To Company</th>
+                <th class = "ledger-tab-component tableone__cell-header typeColumn">Type</th>
+                <th class = "ledger-tab-component tableone__cell-header noteColumn">Note</th>
+                <th class = "ledger-tab-component tableone__cell-header roundColumn">Round</th>
+                <th class = "ledger-tab-component tableone__cell-header amountColumn">Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Transactions -->
+            <tr class = "ledger-tab-component tableone__row" *ngFor = "let transaction of transactions" [class.moneyTo] = "transaction.toCompany == company" [class.moneyFrom] = "transaction.fromCompany == company" [class.hidden] = "!setFilterCompany(transaction) || !setFilterType(transaction)">
+
+                <!-- Company -->
+                <td class = "ledger-tab-component companyColumn">
+                    <span *ngIf = "transaction.fromCompany == company">{{transaction.toCompany}}</span>
+                    <span *ngIf = "transaction.toCompany == company">{{transaction.fromCompany}}</span>
+                </td>
+
+                <!-- Type -->
+                <td>
+                    <span *ngIf = "transaction.type == 'Order'">
+                        <span *ngIf = "transaction.fromCompany == company">Purchase</span>
+                        <span *ngIf = "transaction.toCompany == company">Sale</span>
+                    </span>
+                    <span *ngIf = "transaction.type == 'Production'">Production</span>
+                    <span *ngIf = "transaction.type == 'Transfer'">Transfer</span>
+                </td>
+
+                <!-- Note -->
+                <td class = "ledger-tab-component noteColumn">{{transaction.note}}</td>
+
+                <!-- Round -->
+                <td class = "ledger-tab-component roundColumn">{{transaction.round}}</td>
+
+                <!-- Amount -->
+                <td class = "ledger-tab-component amountColumn">
+                    <span *ngIf = "transaction.fromCompany == company">-</span>
+                    <span *ngIf = "transaction.toCompany == company">+</span>
+                    ${{transaction.amount | number}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

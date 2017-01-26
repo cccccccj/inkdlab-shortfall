@@ -1,0 +1,8 @@
+<div class = "inventory-component container" id = "container">
+    <ul class = "inventory-component nav">
+        <li class = "inventory-component nav__item nav__item--green" [class.nav__item--active] = "activeTab == 'production'" (click) = "changeTab('production')">Production</li><li class = "inventory-component nav__item nav__item--green" [class.nav__item--active] = "activeTab == 'waste'" (click) = "changeTab('waste')">Waste Management</li>
+    </ul>
+
+    <production-tab [class.hidden] = "activeTab != 'production'"></production-tab>
+    <waste-tab [class.hidden] = "activeTab != 'waste'"></waste-tab>
+</div>

@@ -1,0 +1,17 @@
+<div class = "banking-component container" id = "container">
+    
+    <!-- Tabs -->
+    <ul class = "banking-component nav" >
+        <li class = "banking-component nav__item nav__item--green" [class.nav__item--active] = "activeTab == 'transfer'" (click) = "changeTab('transfer')">Transfer</li><li class = "banking-component nav__item nav__item--green" [class.nav__item--active] = "activeTab == 'ledger'" (click) = "changeTab('ledger')">Ledger</li>
+    </ul>
+
+    <!-- Balance -->
+    <div class = "banking-component container__item" id = "balance">Balance: ${{ds.companyData.balance | number}}</div>
+
+    <!-- Tab Contents -->
+    <transfer-tab [class.hidden] = "activeTab != 'transfer'"></transfer-tab>
+    <ledger-tab [class.hidden] = "activeTab != 'ledger'" (balanceChange) = "updateBalance($event)"></ledger-tab>
+
+
+
+</div>

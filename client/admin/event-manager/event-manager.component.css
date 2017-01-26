@@ -1,0 +1,84 @@
+#container {
+    position: absolute;
+}
+
+#eventsTable {
+    display: inline-table;
+}
+
+th {
+    text-align: center;
+}
+
+td {
+    font-size: 0.9em;
+}
+
+ul {
+    margin: 5px;
+}
+
+.roundColumn {
+    min-width: 50px;
+    text-align: center;
+}
+
+.eventsColumn {
+    min-width: 200px;
+}
+
+li {
+    list-style: none;
+}
+
+.clickable:hover {
+    background-color: beige;
+    cursor: pointer;
+}
+
+.selected, .selected:hover {
+    background-color: bisque;
+    cursor: default;
+}
+
+#detailsBox {
+    position: absolute;
+    display: inline-block;
+    background-color: antiquewhite;
+    border: 1px solid black;
+    border-radius: 10px;
+    top: 20px;
+    padding: 10px;
+    margin-left: 10px;
+    min-width: 200px;
+    min-height: 200px;
+}
+
+h1 {
+    font-size: 1em;
+    text-align: center;
+}
+
+p {
+    font-size: 0.9em;
+    text-align: justify;
+}
+
+.addButton, .deleteButton {
+    background-size: 14px 14px;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 14px;
+    height: 14px;
+    border-radius: 7px;
+    border: none;
+    outline: none;
+}
+
+.addButton {
+    background-image: url('shared/images/plus.png');
+}
+
+.deleteButton {
+    background-image: url('shared/images/minus.png');
+}

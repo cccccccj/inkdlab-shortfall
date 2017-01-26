@@ -1,0 +1,42 @@
+<section id = "infoBar">
+    <h1 class = "infobar-title">Shortfall 3.5</h1>
+    
+    <div class = "round">
+        <span *ngIf = "initialized">
+            Round: {{ds.gameData.currentRound}}/{{ds.gameData.totalRounds}}
+            <span *ngIf = "roundTimer">Next round in: {{timerMin}}:{{timerSec}}</span>
+        </span>
+   </div>
+</section>
+
+<div class = "window" id = "directoryWindow">
+    <company-directory *ngIf = "initialized || setProfile" [setProfile] = "setProfile" (profileSet) = "startGame()"></company-directory>
+</div>
+
+<section id = "buttons"></section>
+
+<div class = "window" id = "eventWindow">
+    <current-event *ngIf = "initialized && !windowReset" (eventsResolved) = "minimizableEvents()"></current-event>
+</div>
+
+<div class = "window" id = "bankingWindow">
+    <banking *ngIf = "initialized && !windowReset"></banking>
+</div>
+
+<div class = "window" id = "purchaseWindow">
+    <purchasing *ngIf = "initialized && !windowReset"></purchasing>
+</div>
+
+<div class = "window" id = "salesWindow">
+    <sales *ngIf = "initialized && !windowReset"></sales>
+</div>
+
+<div class = "window" id = "inventoryWindow">
+    <inventory *ngIf = "initialized && !windowReset"></inventory>
+</div>
+
+<div class = "window" id = "chatWindow">
+    <chat *ngIf = "initialized" [(ActiveTab)] = "chatCompany"></chat>
+</div>      
+
+

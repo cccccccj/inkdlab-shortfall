@@ -1,0 +1,53 @@
+<table class = "other-companies-tab-component tableone">
+        <tbody>     
+            
+            <!-- Company -->
+         	<tr>
+     		    <td>
+                	<label class = "tableone__label" for = "companyName">Company:</label>
+                </td>
+                <td>
+                    <select class = "tableone__filter" [ngModel] = "index" (ngModelChange) = "onCompanyChange($event)" name = "companyName" id = "companyName" >
+                        <option *ngFor = "let companyData of ds.companiesData; let i = index" [value] = "i">{{companyData.company}}</option>
+                    </select>
+                
+                    <chat-button [company] = "ds.companiesData[index].company"></chat-button>
+                </td>       
+            </tr>
+            
+            <!-- Part -->
+            <tr>
+                <td class = "tableone__cell">Part:</td>
+                <td><b>{{ds.companiesData[index].part}}</b></td>
+            </tr>
+            
+            <!-- Player -->
+            <tr>
+                <td class = "tableone__cell">Player(s):</td>
+                <td>
+                    <b>
+                        <span *ngIf = "ds.companiesData[index].player === 'computer'">Computer</span>
+                        <span *ngIf = "ds.companiesData[index].player === 'human'">{{ds.companiesData[index].username}}</span>
+                    </b>
+                </td>
+            </tr>
+            
+            <!-- Round -->
+            <tr>
+                <td>Round:</td>
+                <td>
+                    <select class = "tableone__filter" [ngModel] = "roundFilter" (ngModelChange) = "onRoundChange($event)" name = "round">
+                        <option value = "All">All</option>
+                        <option *ngFor = "let i of roundArray" [value] = "i">Round {{i}}</option>
+                    </select>
+                </td>
+            </tr>
+            
+            <!-- Chart -->
+            <tr>
+                <td colspan = "2">
+                    <canvas baseChart class = "other-companies-tab-component directoryChart" [data] = [a,b,c] [datasets] = "chartData" [labels] = "chartLabels" [chartType] = "'line'"></canvas>
+                </td>
+            </tr>
+        </tbody>
+</table>

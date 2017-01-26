@@ -1,0 +1,8 @@
+<div class = "purchasing-component container" id = "container">
+    <ul class = "purchasing-component nav">
+        <li class = "purchasing-component nav__item nav__item--green" [class.nav__item--active] = "activeTab == 'negotiations'" (click) = "changeTab('negotiations')">Negotiations</li><li class = "purchasing-component nav__item nav__item--green" [class.nav__item--active] = "activeTab == 'orders'" (click) = "changeTab('orders')">Orders</li>
+    </ul>
+
+    <p-negotiations-tab [class.hidden] = "activeTab != 'negotiations'"></p-negotiations-tab>
+    <p-orders-tab [class.hidden] = "activeTab != 'orders'"></p-orders-tab>
+</div>

@@ -1,0 +1,26 @@
+<div class = "current-event-component container">
+    <!-- Round Number -->
+    <h1 class = "current-event-component round-title">Round {{round}}</h1>
+    
+    <!-- Events -->
+    <div class = "current-event-component" *ngFor = "let eventId of events">
+        <!-- Title -->
+        <h2 class = "current-event-component event-title">{{ds.eventsData[eventId].title}}</h2>
+        
+        <!-- Description -->
+        <p class = "current-event-component description">{{ds.eventsData[eventId].description}}</p>
+        
+        <!-- Resolution -->
+        <div *ngIf = "ds.eventsData[eventId].options" class = "current-event-component options">
+            <!-- Selected Option -->
+            <span class = "current-event-component" *ngIf = "ds.companyData.eventResolves['round'+round+eventId]">
+                Resolved: {{ds.companyData.eventResolves['round'+round+eventId]}}
+            </span>
+            
+            <!-- Available Options -->
+            <span class = "current-event-component" *ngIf = "!ds.companyData.eventResolves['round'+round+eventId]">
+                <button class = "current-event-component btn__option" *ngFor = "let option of ds.eventsData[eventId].options" (click) = "onSelect(eventId, option)">{{option}}</button>
+            </span>
+        </div>
+    </div>
+</div>

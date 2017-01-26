@@ -1,0 +1,132 @@
+<!-- SET MODE -->
+<form *ngIf = "setMode" (ngSubmit) = "onSubmit()">
+    <table class = "my-company-tab-component tabletwo">
+        <tbody>
+            
+            <!-- Part -->
+            <tr class = "my-company-tab-component tabletwo__row">
+                <td class = "my-company-tab-component labelColumn tabletwo__cell">System Part</td>
+                <td class = "my-company-tab-component  inputColumn tabletwo__cell"><b>{{part}}</b></td>
+            </tr>
+            
+            <!-- Company Name -->
+            <tr class = "my-company-tab-component tabletwo__row">
+                <td class = "my-company-tab-component tabletwo__cell">
+                    <label for = "my-company-tab-component  companyName">Company Name</label>
+                </td>
+                <td class = "my-company-tab-component tabletwo__cell">
+                    <input class = "my-company-tab-component tabletwo__cell-input" type = "text" id = "companyName" [(ngModel)] = "company" name = "companyName" autofocus required>
+                    <span *ngIf = "companyTaken" class = taken><br>Sorry, company name taken</span>
+                </td>
+            </tr>
+            
+            <!-- Mission -->
+            <tr class = "my-company-tab-component tabletwo__row">
+                <td class = "my-company-tab-component tabletwo__cell">
+                    <label for = "mission">Mission</label>
+                </td>
+                <td class = "my-company-tab-component tabletwo__cell">
+                    <input class = "my-company-tab-component tabletwo__cell-input" type = "text" id = "mission" [(ngModel)] = "mission" name = "mission">
+                </td>
+            </tr>
+            
+            <!-- Financial Goal -->
+            <tr class = "my-company-tab-component tabletwo__row">
+                <td class = "my-company-tab-component tabletwo__cell">
+                    <label for = "financialGoal">Year 1 Financial Goal: </label>
+                </td>
+                <td class = "my-company-tab-component tabletwo__cell">
+                    <input class = "my-company-tab-component tabletwo__cell-range" type = "range" id = "financialGoal" min = "0" max = "100" value = "33" step = "1" [ngModel] = "financial" (ngModelChange) = "constrainGoals('financial', $event)" name = "financialGoal"> {{financial}}%
+                </td>
+            </tr>
+
+            <!-- Green Goal -->
+            <tr class = "my-company-tab-component tabletwo__row">
+                <td class = "my-company-tab-component tabletwo__cell">
+                    <label for = "greenGoal">Year 1 Green Goal: </label>
+                </td>
+                <td class = "my-company-tab-component tabletwo__cell">
+                    <input class = "my-company-tab-component tabletwo__cell-range" type = "range" id = "greenGoal" min = "0" max = "100" value = "34" step = "1" [ngModel] = "green" (ngModelChange) = "constrainGoals('green', $event)" name = "greenGoal"> {{green}}%
+                </td>
+            </tr>
+
+            <!-- Social Goal -->
+            <tr class = "my-company-tab-component tabletwo__row">
+                <td class = "my-company-tab-component tabletwo__cell">
+                    <label for = "socialGoal">Year 1 Social Goal: </label>
+                </td>
+                <td class = "my-company-tab-component tabletwo__cell">
+                    <input class = "my-company-tab-component tabletwo__cell-range" type = "range" id = "socialGoal" min = "0" max = "100" value = "34" step = "1" [ngModel] = "social" (ngModelChange) = "constrainGoals('social', $event)" name = "socialGoal"> {{social}}%
+                </td>
+            </tr>
+            
+            <tr class = "my-company-tab-component tabletwo__row">
+                <td colspan = "2" class = "my-company-tab-component tabletwo__cell">
+                    <!-- Profile Presets -->
+                    <ul>
+                        <li  id = "presetList" *ngFor = "let preset of presets; let i = index">
+                            <input type = "radio" name = "preset" [id] = "'preset' + i" class = "presetButton" [value] = "preset" (click) = "changePreset(i)" [checked] = "i == defaultIndex">
+                            <label [attr.for] = "'preset' + i" class = "presetLabel">{{preset.name}}</label>
+                        </li>
+                    </ul>
+                    
+                    <!-- Chart -->
+                    <canvas baseChart class = "setChart" [data] = [financial,green,social] [labels] = "chartLabels" [chartType] = "'doughnut'">
+                    </canvas>
+                </td>
+            </tr>
+        </tbody> 
+    </table>
+         
+    <!-- Button -->
+    <input class = "my-company-tab-component btn--action" type = "submit" value = "Submit" [disabled] = "invalidInput()" aria-label = "Set company profile">
+</form>
+
+<!-- DISPLAY MODE -->
+<table class = "my-company-tab-component tabletwo" *ngIf = "!setMode"> 
+    <tbody>
+        <!-- Part -->
+        <tr class = "my-company-tab-component  tabletwo__row">
+            <td class = "my-company-tab-component tabletwo__cell">System Part</td>
+            <td class = "my-company-tab-component tabletwo__cell"><b>{{part}}</b></td>
+        </tr>
+        
+        <!-- Company Name -->
+        <tr class = "my-company-tab-component  tabletwo__row">
+            <td class = "my-company-tab-component  tabletwo__cell">Company Name</td>
+            <td class = "my-company-tab-component  tabletwo__cell">{{company}}</td>
+        </tr>
+        
+        <!-- Mission -->
+        <tr class = "my-company-tab-component tabletwo__row">
+            <td class = "my-company-tab-component  tabletwo__cell">Mission</td>
+            <td class = "my-company-tab-component  tabletwo__cell">{{mission}}</td>
+        </tr>
+        
+        <!-- Financial Goal -->
+        <tr class = "my-company-tab-component tabletwo__row">
+            <td class = "my-company-tab-component  tabletwo__cell">Year 1 Financial Goal</td>
+            <td class = "my-company-tab-component  tabletwo__cell">{{financial}}%</td>
+        </tr>
+        
+        <!-- Green Goal -->
+        <tr class = "my-company-tab-component tabletwo__row">
+            <td class = "my-company-tab-component  tabletwo__cell">Year 1 Green Goal</td>
+            <td class = "my-company-tab-component  tabletwo__cell">{{green}}%</td>
+        </tr>
+        
+        <!-- Social Goal -->
+        <tr class = "my-company-tab-component tabletwo__row">
+            <td class = "my-company-tab-component  tabletwo__cell">Year 1 Social Goal</td>
+            <td class = "my-company-tab-component  tabletwo__cell">{{social}}%</td>
+        </tr>
+        
+        <!-- Chart -->
+        <tr class = "my-company-tab-component tabletwo__row">
+        	<td colspan="2">
+                <canvas baseChart class = "my-company-tab-component  displayChart" [data] = [financial,green,social] [labels] = "chartLabels" [chartType] = "'doughnut'">
+                </canvas>
+			</td>
+        </tr>
+    </tbody>
+</table>

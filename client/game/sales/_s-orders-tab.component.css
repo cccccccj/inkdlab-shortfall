@@ -1,0 +1,126 @@
+#container {
+    position: absolute;
+}
+
+#top {
+    font-size: 0.8em;
+}
+
+#filter {
+    position: absolute;
+    right: 10px;  
+}
+
+table {
+    margin-top: 10px;
+    font-size: 0.9em;
+}
+
+td, th {
+    text-align: center;
+    font-size: 0.9em;
+    padding: 5px;
+}
+
+.subheading {
+    font-size: 0.6em;
+}
+
+.subRow {
+    font-size: 0.8em;
+}
+
+.pending .mainRow {
+    background-color: #C1DDE5;
+}
+
+.pending .subRow {
+    background-color: #DCE3E5;
+}
+
+.overdue .mainRow {
+    background-color: #D6ADAD;
+}
+
+.overdue .subRow {
+    background-color: #D6C3C3;
+}
+
+.fulfilled .mainRow {
+    background-color: #C7E0AD;
+}
+
+.fulfilled .subRow {
+    background-color: #D3E0C5;
+}
+
+.quantityBox {
+    width: 70px;
+}
+
+.companyColumn {
+    min-width: 180px;
+}
+
+.chatColumn {
+    min-width: 70px;
+}
+
+.roundColumn {
+    min-width: 100px;
+}
+
+.quantityColumn, .mechQualityColumn {
+    min-width: 100px;
+}
+
+.statusColumn {
+    min-width: 250px;
+}
+
+.hidden {
+    display: none;
+}
+
+.online, .offline, .computer { 
+    width: 10px;
+    height: 10px;
+}
+
+.chatButton {
+    background-color: #BAA29B;
+    background-image: url('shared/images/chat.png');
+    background-size: 20px 16px;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 40px;
+    height: 20px;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+}
+
+.showButton, .hideButton {
+    position: absolute;
+    right: 10px;
+    background-size: 16px 16px;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 16px;
+    height: 16px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+}
+
+.showButton {
+    background-image: url('shared/images/plus.png');
+}
+
+.hideButton {
+    background-image: url('shared/images/minus.png');
+}
+
+input[type="button"] {
+    cursor: pointer;
+}

@@ -1,0 +1,8 @@
+<div  class = "sales-component container" id = "container">
+    <ul class = "sales-component nav">
+        <li class = "sales-component nav__item nav__item--green" [class.nav__item--active] = "activeTab == 'negotiations'" (click) = "changeTab('negotiations')">Negotiations</li><li class = "sales-component nav__item nav__item--green" [class.nav__item--active] = "activeTab == 'orders'" (click) = "changeTab('orders')">Orders</li>
+    </ul>
+
+    <s-negotiations-tab [class.hidden] = "activeTab != 'negotiations'"></s-negotiations-tab>
+    <s-orders-tab [class.hidden] = "activeTab != 'orders'"></s-orders-tab>
+</div>

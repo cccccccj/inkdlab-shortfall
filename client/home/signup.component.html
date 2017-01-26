@@ -1,0 +1,38 @@
+<form class="signup-form" (ngSubmit) = "onSignup()" #signupForm = "ngForm">
+
+    <!-- Name -->
+    
+    <input type = "text" id = "name" [(ngModel)] = "name" name = "name" placeholder = "Name" aria-label = "Name" aria-required = "true" autocapitalize = "off" autofocus required>
+
+    <!-- Email -->
+    
+    <input type = "email" id = "email" [(ngModel)] = "email" name = "email" placeholder = "Email" aria-label = "Email" aria-required = "true" autocorrect = "off" autocapitalize = "off" required>
+    
+    <span *ngIf = "emailError"><br>Email in use by another account</span>
+    
+    <!-- Username -->
+
+    <input type = "text" id = "username" [(ngModel)] = "username" name = "username" placeholder = "Username" aria-label = "Username" aria-required = "true" autocorrect = "off" autocapitalize = "off" required>
+    
+    <span *ngIf = "usernameError"><br>Username taken</span>
+            
+    <!-- Password -->
+    
+    <input type = "password" id = "password1" [(ngModel)] = "password1" name = "password1" placeholder = "Password" aria-label = "Password" aria-required = "true" required>
+            
+    <!-- Confirm Password -->
+
+    <input type = "password" id = "password2" [(ngModel)] = "password2" name = "password2" placeholder = "Confirm Password" aria-label = "Confirm password" aria-required = "true" required>
+            
+    <!-- Type -->
+
+    <label for = "signupAs">Create account as</label>
+    <select id = "signupAs" [(ngModel)] = "type" name = "signupAs">
+        <option value = "Player" selected>Player</option>
+        <option value = "Admin" selected>Admin</option>
+    </select>
+    
+    <!-- Submit button -->
+    
+    <input class="btn--submit" type = "submit" value = "Create {{type}} Account" [disabled] = "!signupForm.valid" attr.aria-label = "Login as {{type}}">
+</form>

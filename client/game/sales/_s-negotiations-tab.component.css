@@ -1,0 +1,99 @@
+#top {
+    font-size: 0.8em;
+}
+
+#filter {
+    position: absolute;
+    right: 10px;  
+}
+
+table {
+    margin-top: 10px;
+    font-size: 0.9em;
+}
+
+td, th {
+    text-align: center;
+    font-size: 0.9em;
+    padding: 5px;
+}
+
+.unsent, .pending {
+    background-color: #C1DDE5;
+}
+
+.accepted {
+    background-color: #C7E0AD;
+}
+
+.rejected, .rescinded {
+    background-color: #D6ADAD;
+}
+
+.quantityBox {
+    width: 70px;
+}
+
+.priceBox {
+    width: 50px;
+}
+
+.companyColumn {
+    min-width: 180px;
+}
+
+.chatColumn {
+    min-width: 70px;
+}
+
+.quantityColumn {
+    min-width: 100px;
+}
+
+.priceColumn {
+    min-width: 120px;
+}
+
+/*
+.mechQualityColumn {
+    
+}
+*/
+
+.totalColumn {
+    min-width: 100px;
+}
+
+.statusColumn {
+    min-width: 250px;
+}
+
+.hidden {
+    display: none;
+}
+
+.note {
+    font-size: 0.7em;
+}
+
+.online, .offline, .computer { 
+    width: 10px;
+    height: 10px;
+}
+
+.chatButton {
+    background-color: #BAA29B;
+    background-image: url('shared/images/chat.png');
+    background-size: 20px 16px;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 40px;
+    height: 20px;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+}
+
+input[type="button"] {
+    cursor: pointer;
+}

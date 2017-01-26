@@ -1,0 +1,13 @@
+<div class="round-manager-component container" id = "container">
+    <div class="round-manager-component datatext">Current Round: {{ds.gameData.currentRound}}</div>
+    <div class="round-manager-component datatext" >Total Rounds: {{ds.gameData.totalRounds}}</div>
+    <div class="round-manager-component box-default">
+    	<div class="round-manager-component box-default__text">
+		    <span class="round-manager-component" >Start next round:</span>
+		    <input  class="round-manager-component box-default__btn" type = "button" value = "NOW" (click) = "nextRound(0)" aria-label = "Now">
+		    </div>
+	    <div class="round-manager-component box-default__text">	
+		    in <input class="round-manager-component box-default__input" type = "number" [(ngModel)] = "timer" step = "timerStep" min = "0" aria-label = "Number of minutes"> minutes <input  class="round-manager-component box-default__btn" type = "button" value = "Start Timer" (click) = "nextRound(timer)" aria-label = "Start timer">
+	    </div>
+	</div>    
+</div>

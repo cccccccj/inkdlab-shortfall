@@ -1,0 +1,94 @@
+/*.wrapper {
+  height: 100%;
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-form {
+  background: #fff;
+/*  width: 50%;*/
+/*  height: 450px;*/
+ /* border-radius: 5px;
+  position: relative;
+  box-shadow: 0 8px 20px -6px #000;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  animation: fadein 1.5s;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.home-form-heading {
+  background: #3498db;
+  color: #fff;
+  font-family: "Nova Flat", Helvetica, sans-serif;
+  font-size: 1.5em;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 1.5em;
+}
+
+.home-form-body {
+  display: flex;
+}
+
+.home-form-left {
+  flex-basis: 50%;
+  text-align: center;
+}
+
+.home-form-right {
+  flex-basis: 50%;
+  text-align: center;
+}*/
+
+
+
+/* Login form tab */
+
+
+
+
+
+/*ul {
+    list-style: none;
+    border-bottom: 1px solid #75ACBD;
+}
+
+li {
+    display: inline-block;
+    background-color: #AAD8E5; 
+    padding: 0.3em;
+    margin: 0;
+    border: 1px solid #75ACBD; 
+    border-radius: 5px 5px 1px 1px;
+}
+
+li:hover {
+    background-color: #82B3C2;
+    cursor: pointer;
+}
+
+.active {
+    background-color: #C7E0AD; 
+    border: 1px solid #9DBD7D; 
+}
+
+.active:hover {
+    background-color: #C7E0AD; 
+    border: 1px solid #9DBD7D; 
+    cursor: default;
+}
+
+.hidden {
+    display: none;
+}*/

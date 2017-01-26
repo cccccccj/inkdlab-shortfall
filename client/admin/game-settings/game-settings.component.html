@@ -1,0 +1,47 @@
+<form *ngIf = "setMode" (ngSubmit) = "onSave()">
+    <table>
+        <tbody>
+            <tr>
+                <td><label for = "totalRounds">Total number of rounds:</label></td>
+                <td>
+                    <select id = "totalRounds" [(ngModel)] = "ds.gameData.totalRounds" name = "totalRounds">
+                        <option *ngFor = "let option of totalRoundsOptions" [value] = "option">{{option}}</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for = "initialBalance">Initial balance:</label></td>
+                <td>$<input type = "number" [(ngModel)] = "ds.gameData.initialBalance" name = "initialBalance" [min] = "initialBalanceMin" [step] = "initialBalanceStep" (blur) = "roundBalance()" (keyup.enter) = "roundBalance"></td>
+            </tr>
+            <tr>
+                <td><label for = "payOnAccept">Payment mode:</label></td>
+                <td>
+                    <select id = "payOnAccept" [(ngModel)] = "ds.gameData.payOnAccept" name = "payOnAccept" #payAccept>
+                        <option *ngFor = "let option of payOnAcceptOptions" [value] = "option">{{option}}</option>
+                    </select>
+                    % on offer acceptance ({{100 - payAccept.value}}% on delivery)
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <input type = "submit" value = "Save Settings" aria-label = "Save settings">
+</form>
+<div *ngIf = "!setMode">
+    <table>
+        <tbody>
+            <tr>
+                <td>Total number of rounds:</td>
+                <td>{{ds.gameData.totalRounds}}</td>
+            </tr>
+            <tr>
+                <td>Initial balance:</td>
+                <td>${{ds.gameData.initialBalance}}</td>
+            </tr>
+            <tr>
+                <td>Payment mode:</td>
+                <td>{{ds.gameData.payOnAccept}}% on offer acceptance ({{100 - ds.gameData.payOnAccept}}% on delivery)</td>
+            </tr>
+        </tbody>
+    </table>
+    <input *ngIf = "ds.gameData.currentRound === 0" type = "button" value = "Edit Settings" (click) = "setMode = true" aria-label = "Edit settings">
+</div>

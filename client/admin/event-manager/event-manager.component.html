@@ -1,0 +1,45 @@
+<div id = "container">
+    <table id = "eventsTable">
+        <thead>
+            <tr>
+                <th class = "roundColumn">Round</th>
+                <th class = "eventsColumn">Events</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let round of roundArray">
+                <td class = "roundColumn">{{round}}</td>
+                <td class = "eventsColumn">
+                    <ul>
+                        <li *ngFor = "let eventId of ds.gameData.events['round'+round]" (click) = "onSelect(eventId)" class = "clickable" [class.selected] = "eventId == selectedId">
+                            <input *ngIf = "round > ds.gameData.currentRound" type = "button" (click) = "onDelete(eventId, round)" class = "deleteButton" aria-label = "Delete event">
+                            {{ds.eventsData[eventId].title}}
+                        </li>
+                        <li *ngIf = "round > ds.gameData.currentRound && !adding[round]">
+                            <input type = "button" (click) = "adding[round] = true" class = "addButton" aria-label = "New event">
+                        </li>
+                        <li *ngIf = "round > ds.gameData.currentRound && adding[round]" (click) = "onSelect(newEvent.value)" class = "clickable" [class.selected] = "newEvent.value == selectedId">
+                            <select #newEvent (change) = "onSelect(newEvent.value)">
+                                <option *ngFor = "let otherId of otherEvents(round)" [value] = "otherId">
+                                    {{ds.eventsData[otherId].title}}
+                                </option>
+                            </select>
+                            <input type = "button" value = "Add" (click) = "onAdd(newEvent.value, round)" aria-label = "Add event">
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <div id = "detailsBox">
+        <h1>{{ds.eventsData[selectedId].title}}</h1>
+        <p>{{ds.eventsData[selectedId].description}}</p>
+        <p>
+            <i>Type: </i>
+            <span *ngIf = "ds.eventsData[selectedId].resolveType == 'immediate'">Resolve at beginning of round</span>
+            <span *ngIf = "ds.eventsData[selectedId].resolveType == 'endOfRound'">Resolve at end of round</span>
+            <span *ngIf = "ds.eventsData[selectedId].resolveType == 'extended'">Chain of events</span>
+        </p>
+    </div>
+</div>

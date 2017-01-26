@@ -1,0 +1,41 @@
+#container {
+    position: absolute;
+    padding: 5px;
+    min-width: 90%;
+    min-height: 90%;
+}
+
+ul {
+    list-style-type: none;
+    border-bottom: 1px solid #75ACBD;
+}
+
+li {
+    font-size: 0.9em;
+    display: inline-block;
+    background-color: #AAD8E5; 
+    padding: 0.3em;
+    margin: 0;
+    border: 1px solid #75ACBD; 
+    border-radius: 5px 5px 1px 1px;
+}
+
+li:hover {
+    background-color: #82B3C2;
+    cursor: pointer;
+}
+
+.active {
+    background-color: #C7E0AD; 
+    border: 1px solid #9DBD7D; 
+}
+
+.active:hover {
+    background-color: #C7E0AD; 
+    border: 1px solid #9DBD7D; 
+    cursor: default;
+}
+
+.hidden {
+    display: none;
+}

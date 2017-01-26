@@ -1,0 +1,8 @@
+<div class = "company-directory-component container" id = "container">
+    <ul class = "company-directory-component nav" [class.hidden] = "setMode">
+        <li class = "company-directory-component nav__item nav__item--green" [class.nav__item--active] = "activeTab == 'myCompany'" (click) = "changeTab('myCompany')">My Company</li><li class = "company-directory-component nav__item nav__item--green" [class.nav__item--active] = "activeTab == 'otherCompanies'" (click) = "changeTab('otherCompanies')">Other Companies</li>
+    </ul>
+
+    <my-company-tab [class.hidden] = "activeTab != 'myCompany'" [setMode] = "setProfile" (profileSet) = "onSet()"></my-company-tab>
+    <other-companies-tab [class.hidden] = "activeTab != 'otherCompanies' || setMode"></other-companies-tab>
+</div>

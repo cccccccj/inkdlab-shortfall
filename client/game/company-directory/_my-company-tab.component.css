@@ -1,0 +1,139 @@
+
+.setChart {
+    display: block;
+	height:200px;
+	width:360px;
+	margin-top:10px;
+	margin-bottom: 0px;
+	padding-left:0px;
+}
+
+.displayChart {
+    display: block;
+	height:280px;
+	width:450px;
+	margin-top:10px;
+	padding-left:40px;
+}
+
+.goals {
+	padding-top:0px;
+    background: lightblue;
+    width:500px;
+}
+
+.goalsRange {
+    background: #dddddd;
+}
+
+.goalsRange td {
+    background: #dddddd;
+    padding-left:20px;
+}
+
+.displayTable {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 650px;
+}
+
+.displayTable td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.displayTable tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.displayTable tr:hover {
+    background-color: #ddd;
+}
+
+.displayTable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+
+form {
+    position: absolute;
+    padding: 10px;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+table {
+    margin-top: 20px;
+    font-size: 0.9em;
+}
+
+td {
+    vertical-align: middle;
+    height: 30px;
+}
+
+.labelColumn {
+    min-width: 200px;
+}
+
+.inputColumn {
+    min-width: 300px;
+}
+
+input {
+    min-width: 250px;
+}
+
+input[type="range"] {
+    min-width: 290px;
+}
+
+
+.taken {
+    padding: 10px;
+    font-size: 0.7em;
+    color: brown;
+}
+
+label {
+	margin-right:20px;
+}
+
+#presetList {
+    list-style: none;
+}
+
+.presetButton {
+	display:none;
+	padding-bottom:10px;
+}
+
+.presetLabel {
+	padding-left:35px;
+	
+	height:30px;
+	display:inline-block;
+	line-height:30px;
+	background-repeat:no-repeat;
+	font-size:18px;
+	vertical-align:middle;
+	cursor:pointer;
+    background-image: url('shared/images/cross-tick.png');
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.presetButton:not(:checked) + .presetLabel {
+	background-position: 0 0;
+}
+
+.presetButton:checked + .presetLabel {
+	background-position: 0 -30px;
+}

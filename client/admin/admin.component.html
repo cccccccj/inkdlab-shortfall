@@ -1,0 +1,17 @@
+<section id = "buttons"></section>
+
+<div class = "window" id = "roundWindow">
+    <round-manager *ngIf = "initialized"></round-manager>
+</div> 
+
+<div class = "window" id = "eventWindow">
+    <event-manager *ngIf = "initialized"></event-manager>
+</div>
+
+<div class = "window" id = "settingsWindow">
+    <game-settings *ngIf = "initialized"></game-settings>
+</div>
+
+<div class = "window" id = "chatWindow">
+    <chat *ngIf = "initialized" [(ActiveTab)] = "chatCompany"></chat>
+</div>      

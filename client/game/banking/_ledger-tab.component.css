@@ -1,0 +1,49 @@
+#filter {
+    font-size: 0.8em;  
+}
+
+table {
+    position: absolute;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+th, td {
+    font-size: 0.8em;
+}
+
+th {
+    text-align: center;
+}
+
+.moneyTo {
+    background-color: #C7E0AD;   
+}
+
+.moneyFrom {
+    background-color: #D6ADAD;
+}
+
+.companyColumn {
+    min-width: 150px;
+    text-align: left;
+}
+
+.noteColumn {
+    min-width: 100px;
+    text-align: center;
+}
+
+.roundColumn {
+    min-width: 50px;
+    text-align: center;
+}
+
+.amountColumn {
+    min-width: 100px;
+    text-align: right;
+}
+
+.hidden {
+    display: none;
+}

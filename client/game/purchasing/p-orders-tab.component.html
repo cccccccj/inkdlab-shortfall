@@ -1,0 +1,140 @@
+<div class = "p-orders-tab-component container" id = "container">
+    <div class = "p-orders-tab-component top" id = "top">
+
+        <!-- Filters -->
+        <span class = "p-orders-tab-component top__filter-container" id = "filter">
+            Part: 
+            <select class = "p-orders-tab-component filter-container__parts" [(ngModel)] = "filterPart" aria-label = "Filter by part">
+                <option value = "All">All</option>
+                <option *ngFor = "let part of parts" [value] = "part">{{part}}</option>
+            </select>
+            Status: 
+            <select class = "p-orders-tab-component filter-container__status" [(ngModel)] = "filterStatus" aria-label = "Filter by order status">
+                <option value = "All">All</option>
+                <option value = "Pending">Pending</option>
+                <option value = "Overdue">Overdue</option>
+                <option value = "Fulfilled">Fulfilled</option>
+            </select>
+        </span> 
+    </div>
+    <table class = "p-orders-tab-component tableone">
+
+        <!-- Headings -->
+        <thead class = "p-orders-tab-component tableone__header">
+            <tr>
+                <th class = "p-orders-tab-component partColumn tableone__cell-header" rowspan = "2">System Part</th>
+                <th rowspan = "2" colspan = "2">Company</th>
+                <th class = "p-orders-tab-component roundColumn tableone__cell-header">Round</th>
+                <th class = "p-orders-tab-component quantityColumn tableone__cell-header">Quantity</th>
+                <th class = "p-orders-tab-component mechQualityColumn tableone__cell-header">Mechanical Quality</th>
+                <th class = "p-orders-tab-component greenScoreColumn tableone__cell-header">Green Score</th>
+                <th class = "p-orders-tab-component statusColumn tableone__cell-header" rowspan = "2">Status</th>
+            </tr>
+            <tr>
+                <th class = "p-orders-tab-component subheading tableone__cell-header">(Due)</th>
+                <th colspan = "3" class = "p-orders-tab-component subheading tableone__cell-header">(Delivered/Expected)</th>
+            </tr>
+        </thead>
+        
+        <tbody *ngFor = "let purchase of purchaseOrders; let i = index" [class.pending] = "purchase.delivered.status != 'Fulfilled' && purchase.dueRound >= round" [class.overdue] = "purchase.delivered.status != 'Fulfilled' && purchase.dueRound < round" [class.fulfilled] = "purchase.delivered.status == 'Fulfilled'"  [class.hidden] = "!setFilterPart(purchase.part) || !setFilterStatus(purchase.delivered.status, purchase.dueRound)">
+            
+            <!-- Purchase Order -->
+            <tr class = "p-orders-tab-component mainRow">
+                <!-- Part -->
+                <td>{{purchase.part}}</td>
+
+                <!-- Company -->
+                <td class = "p-orders-tab-component companyColumn" >{{purchase.saleCompany}}</td>
+
+                <!-- Chat -->
+                <td class = "p-orders-tab-component chatColumn" >
+                    <chat-button [company] = "purchase.saleCompany"></chat-button>
+                </td>
+                
+                <!-- Round -->
+                <td>
+                    <!-- unfulfilled/partially fulfilled -->
+                    <span  *ngIf = "purchase.delivered.status != 'Fulfilled'">
+                        <span *ngIf = "purchase.dueRound == round">This round</span>
+                        <span *ngIf = "purchase.dueRound == round + 1">Next round</span>
+                        <span *ngIf = "purchase.dueRound < round">
+                            Overdue {{round - purchase.dueRound}} round
+                            <span *ngIf = "round - purchase.dueRound > 1">s</span>
+                        </span>
+                    </span>
+                    <!-- fulfilled -->
+                    <span *ngIf = "purchase.delivered.status == 'Fulfilled'">-</span>
+                </td>
+                
+                <!-- Quantity -->
+                <td>
+                    {{purchase.delivered.quantity | number}}/{{purchase.quantity | number}}
+                </td>
+
+                <!-- Mechanical Quality -->
+                <td>
+                    {{purchase.delivered.mechQuality}}/{{purchase.mechQuality}}
+                </td>
+                
+                <!-- Green Score -->
+                <td>
+                    {{purchase.delivered.greenScore}}/{{purchase.greenScore}}
+                </td>
+                
+                <!-- Status -->
+                <td>
+                    <!-- pending -->
+                    <span  *ngIf = "purchase.delivered.status != 'Fulfilled' && purchase.dueRound >= round">
+                        Pending - {{purchase.delivered.status}}
+                    </span>
+                    <!-- overdue -->
+                    <span  *ngIf = "purchase.delivered.status != 'Fulfilled' && purchase.dueRound < round">
+                        Overdue - {{purchase.delivered.status}}
+                    </span>
+                    <!-- fulfilled -->
+                    <span  *ngIf = "purchase.delivered.status == 'Fulfilled'">
+                        {{purchase.delivered.status}} - 
+                        <span *ngIf = "purchase.dueRound == purchase.delivered.round">On Time</span>
+                        <span *ngIf = "purchase.dueRound > purchase.delivered.round">Early</span>
+                        <span *ngIf = "purchase.dueRound < purchase.delivered.round">Late</span>
+                    </span>
+                    
+                    <!-- Details Toggle Button -->
+                    <span *ngIf = "purchase.shipmentRecord.length > 0">
+                        <input type = "button" [class.showButton] = "hideDetails[i]" [class.hideButton] = "!hideDetails[i]" (click) = "toggleDetails(i)" attr.aria-label = "{{hideDetails[i]?'Show':'Hide'}} order details">
+                    </span>
+                </td> 
+            </tr>
+            
+            <!-- Delivery Details -->
+            <tr *ngFor = "let record of purchase.shipmentRecord; let j = index" class = "subRow tableone__row" [class.hidden] = "hideDetails[i] && record.status != 'shipped'">
+                <td colspan = "3"></td>
+                <!-- Round -->
+                <td>{{record.round}}</td>
+                <!-- Quantity -->
+                <td>{{record.quantity}}</td>
+                <!-- Mechanical Quality -->
+                <td>{{record.mechQuality}}</td>
+                <!-- Green Score -->
+                <td>{{record.greenScore}}</td>
+                <td>
+                    <!-- Status -->
+                    <span *ngIf = "purchase.dueRound == record.round">On time</span>
+                    <span *ngIf = "purchase.dueRound > record.round">Early</span>
+                    <span *ngIf = "purchase.dueRound < record.round">Late</span>
+                    shipment - 
+                    <span *ngIf = "record.status != 'shipped'">
+                        {{record.status}}
+                    </span>
+                    <span *ngIf = "record.status == 'shipped'">
+                        <!-- Accept Button -->
+                        <input class = "btn__table" type = "button" value = "Accept" (click) = "onAccept(i,j)" aria-label = "Accept shipment">
+                        <!-- Refuse Button -->
+                        <input class = "btn__table" type = "button" value = "Refuse" (click) = "onRefuse(i,j)" aria-label = "Refuse shipment">
+                    </span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+

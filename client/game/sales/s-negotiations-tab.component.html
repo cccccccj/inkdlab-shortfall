@@ -1,0 +1,167 @@
+<div class = "s-negotiations-tab-component container" id = "container">
+    <div class = "s-negotiations-tab-component top" id = "top">
+        
+        <!-- Part -->
+        <span class = "top__title top__title--grey-text"><b>System Part:</b> {{part}}</span>
+        
+        <!-- Filters -->
+        <span class = "s-negotiations-tab-component top__filter-container" id = "filter">
+            Company:
+            <select class = "s-negotiations-tab-component filter-container__companies" [(ngModel)] = "filterCompany" name = "companyFilter" aria-label = "Filter by company">
+                <option value = "All">All</option>
+                <option *ngFor = "let company of purchaseCompanies" [value] = "company">{{company}}</option>
+            </select>
+            Status: 
+            <select class = "s-negotiations-tab-component filter-container__status" [(ngModel)] = "filterStatus" name = "statusFilter" aria-label = "Filter by offer status">
+                <option value = "All">All</option>
+                <option value = "Pending">Pending</option>
+                <option value = "Accepted">Accepted</option>
+                <option value = "Rejected">Rejected</option>
+            </select>
+        </span> 
+    </div>
+    <table class = "tableone">
+        
+        <!-- Headings -->
+        <thead class = "tableone__header">
+            <tr>
+                <th colspan = "2">Company</th>
+                <th class = "s-negotiations-tab-component tableone__cell-header quantityColumn">Quantity</th>
+                <th class = "s-negotiations-tab-component tableone__cell-header priceColumn">Price</th>
+                <th class = "s-negotiations-tab-component tableone__cell-header mechQualityColumn">Mechanical Quality</th>
+                <th class = "s-negotiations-tab-component tableone__cell-header greenScoreColumn">Green Score</th>
+                <th class = "s-negotiations-tab-component tableone__cell-header totalColumn">Total</th>
+                <th class = "s-negotiations-tab-component tableone__cell-header statusColumn">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            <!-- Sales -->
+            <tr class = "s-negotiations-tab-component tableone__row" *ngFor = "let sale of sales; let i = index" [class.unsent] = "sale.offerStatus == 'unsent'" [class.accepted] = "sale.offerStatus == 'accepted'" [class.rejected] = "sale.offerStatus == 'rejected'" [class.pending] = "sale.offerStatus == 'pending'" [class.rescinded] = "sale.offerStatus == 'rescinded'" [class.hidden] = "!setFilterCompany(sale.purchaseCompany) || !setFilterStatus(sale.offerStatus)">
+                
+                <!-- Company -->
+                <td class = "s-negotiations-tab-component companyColumn">
+                    <select class = "s-negotiations-tab-component tableone__filter-cell" *ngIf = "sale.offerStatus == 'unsent'" [(ngModel)] = "sale.purchaseCompany" name = "company" aria-label = "company">
+                        <option *ngFor = "let company of purchaseCompanies" [value] = "company">{{company}}</option>
+                    </select>
+                    <span *ngIf = "sale.offerStatus != 'unsent'">{{sale.purchaseCompany}}</span>
+                </td>
+                
+                <!-- Chat -->
+                <td class = "s-negotiations-tab-component chatColumn">
+                    <chat-button [company] = "sale.purchaseCompany"></chat-button>
+                </td>
+                
+                <!-- Quantity -->
+                <td>
+                    <input *ngIf = "sale.offerStatus == 'unsent'" class = "s-negotiations-tab-component quantityBox tableone__cell-input" type = "number" [(ngModel)] = "sale.quantity" name = "quantity" min = "0" [step] = "quantityStepValue" (blur) = "roundQuantity(i)" (keyup.enter) = "roundQuantity(i)" aria-label = "Quantity">
+                    <span *ngIf = "sale.offerStatus != 'unsent'">{{sale.quantity | number}}</span>
+                </td>
+                
+                <!-- Price -->
+                <td>
+                    <span *ngIf = "sale.offerStatus == 'unsent'">
+                        <span *ngIf = "priceType == 'number'">
+                            $<input class = "s-negotiations-tab-component priceBox tableone__cell-input" type = "number" [(ngModel)] = "sale.price" name = "price" min = "0" [step] = "priceStepValue" (blur) = "roundPrice(i)" (keyup.enter) = "roundPrice(i)" aria-label = "Price">/unit
+                        </span>
+                        <span *ngIf = "priceType == 'object'">
+                            $<select [(ngModel)] = "sale.price" name = "price" aria-label = "Price">
+                                <option *ngFor = "let price of priceDefaultValue" [value] = "price">{{price}}</option>
+                            </select>/unit
+                        </span>
+                    </span>
+                    <span *ngIf = "sale.offerStatus != 'unsent'">${{sale.price | number}}/unit</span>
+                </td>
+                
+                <!-- Mechanical Quality -->
+                <td>
+                    <select class = "s-negotiations-tab-component tableone__filter-cell" *ngIf = "sale.offerStatus == 'unsent'" [(ngModel)] = "sale.mechQuality" name = "mechQuality" aria-label = "Mechanical Quality">
+                        <option value = "A">A</option>
+                        <option value = "B">B</option>
+                        <option value = "C">C</option>
+                        <option value = "D">D</option>
+                    </select>
+                    <span *ngIf = "sale.offerStatus != 'unsent'">{{sale.mechQuality}}</span>
+                </td>
+                
+                <!-- Green Score -->
+                <td>
+                    <span *ngIf = "sale.offerStatus == 'unsent'">
+                        <input class = "s-negotiations-tab-component greenBox tableone__cell-input" type = "number" [(ngModel)] = "sale.greenScore" name = "greenScore" min = "10" max = "100" [step] = "greenScoreStepValue" (blur) = "roundGreenScore(i)" (keyup.enter) = "roundGreenScore(i)" aria-label = "Green Score">%
+                    </span>
+                    <span *ngIf = "sale.offerStatus != 'unsent'">{{sale.greenScore | number}}%</span>
+                </td>
+                
+                <!-- Total -->
+                <td>${{sale.quantity * sale.price | number}}</td>
+                
+                <!-- Status -->
+                <td>
+                    <!-- unsent -->
+                    <span  *ngIf = "sale.offerStatus == 'unsent'">
+                        <input type = "text" placeholder="Seller Note" class = "s-negotiations-tab-component noteBox tableone__cell-input" [(ngModel)] = "sale.saleNote" name = "note" aria-label = "Seller note"><br>
+                        <input class = "s-negotiations-tab-component btn__table" type = "button" value="Send Offer" [disabled] = "sale.quantity < 1 || sale.price < 1" (click) = "onSend(i)" aria-label = "Send offer">
+                        <input class = "s-negotiations-tab-component btn__table" type = "button" value = "Delete" (click) = "onDelete(i)" aria-label = "Delete offer">
+                    </span>
+                    <!-- pending -->
+                    <span  *ngIf = "sale.offerStatus == 'pending'">
+                        <span *ngIf = "sale.offerBy == 'sale'">
+                            Offer Sent
+                            <input class = "s-negotiations-tab-component btn__table" type = "button" value = "Rescind" (click) = "onRescind(i)" aria-label = "Rescind offer">
+                            <span *ngIf = "sale.saleNote" class = "s-negotiations-tab-component note">
+                                <br><i>Seller note: </i>{{sale.saleNote}}
+                            </span>
+                        </span>
+                        <span *ngIf = "sale.offerBy == 'purchase'">
+                            <span *ngIf = "sale.purchaseNote" class = "s-negotiations-tab-component note">
+                                <i>Buyer note: </i>{{sale.purchaseNote}}<br>
+                            </span>
+                            <input type = "text" placeholder="Seller Note" class = "s-negotiations-tab-component noteBox tableone__cell-input" [(ngModel)] = "sale.saleNote" name = "note" aria-label = "Seller note"><br>
+                            <input type = "button" value="Accept" (click) = "onAccept(i)" aria-label = "Accept offer">
+                            <input type = "button" value="Reject" (click) = "onReject(i)" aria-label = "Reject offer">
+                        </span>
+                    </span>
+                    <!-- accepted/rejected -->
+                    <span *ngIf = "sale.offerStatus == 'accepted' || sale.offerStatus == 'rejected'">
+                        <span *ngIf = "sale.offerBy == 'sale'">
+                            Your offer was {{sale.offerStatus}}
+                            <span *ngIf = "sale.saleNote" class = "s-negotiations-tab-component note">
+                                <br><i>Seller note: </i>{{sale.saleNote}}
+                            </span>
+                            <span *ngIf = "sale.purchaseNote" class = "s-negotiations-tab-component note">
+                                <br><i>Buyer note: </i>{{sale.purchaseNote}}
+                            </span>
+                        </span>
+                        <span *ngIf = "sale.offerBy == 'purchase'">
+                            You {{sale.offerStatus}} the offer
+                            <span *ngIf = "sale.purchaseNote" class = "s-negotiations-tab-component note">
+                                <br><i>Buyer note: </i>{{sale.purchaseNote}}
+                            </span>
+                            <span *ngIf = "sale.saleNote" class = "s-negotiations-tab-component note">
+                                <br><i>Seller note: </i>{{sale.saleNote}}
+                            </span>
+                        </span>
+                    </span>
+                    <!-- rescinded -->
+                    <span *ngIf = "sale.offerStatus == 'rescinded'">
+                        <span *ngIf = "sale.offerBy == 'sale'">
+                            You {{sale.offerStatus}} the offer
+                            <span *ngIf = "sale.saleNote" class = "s-negotiations-tab-component note">
+                                <br><i>Seller note: </i>{{sale.saleNote}}
+                            </span>
+                        </span>
+                        <span *ngIf = "sale.offerBy == 'purchase'">
+                            The offer was {{sale.offerStatus}}
+                            <span *ngIf = "sale.purchaseNote" class = "s-negotiations-tab-component note">
+                                <br><i>Buyer note: </i>{{sale.purchaseNote}}
+                            </span>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <!-- New Sale -->
+    <input class = "s-negotiations-tab-component btn--action" type = "button" value="Sell to Another Company" (click) = "onNewSale()" aria-label = "Sell to another company"> <!-- cross component -->
+</div> <!-- container -->

@@ -1,0 +1,10 @@
+#container {
+    position: absolute;
+    padding: 5px;
+    min-width: 90%;
+    min-height: 90%;
+}
+
+.timeBox {
+    width: 50px;
+}

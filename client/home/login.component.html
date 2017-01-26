@@ -1,0 +1,26 @@
+<form class="login-form" (ngSubmit) = "onLogin()" #loginForm = "ngForm">
+    
+    <!-- Username -->
+    
+    <input type = "text" id = "username" [(ngModel)] = "username" name = "username" placeholder = "Username" aria-label = "Username" aria-required = "true" autocorrect = "off" autocapitalize = "off" autofocus required>
+    
+    <span *ngIf = "usernameError"><br>Username does not exist</span>
+
+    <!-- Password -->
+    
+    <input type = "password" id = "password" [(ngModel)] = "password" name = "password" placeholder = "Password" aria-label = "Password" aria-required = "true" required>
+      
+    <span *ngIf = "passwordError"><br>Password invalid<br></span>
+    
+    <!-- Type -->
+    
+    <label for = "loginAs">Login as</label>
+    <select id = "loginAs" [(ngModel)] = "type" name = "loginAs">
+        <option value = "Player" selected>Player</option>
+        <option value = "Admin" selected>Admin</option>
+    </select>
+    
+    <!-- Submit Button -->
+    
+    <input type = "submit" class="btn--submit" value = "Login as {{type}}" [disabled] = "!loginForm.valid" attr.aria-label = "Login as {{type}}">
+</form>
