@@ -8,8 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var data_service_1 = require('shared/data.service');
+var core_1 = require("@angular/core");
+var data_service_1 = require("shared/data.service");
 var ChatWindow = (function () {
     function ChatWindow(ds) {
         this.ds = ds;
@@ -71,24 +71,25 @@ var ChatWindow = (function () {
         }
         this.activeTab = company;
     };
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', String), 
-        __metadata('design:paramtypes', [String])
-    ], ChatWindow.prototype, "ActiveTab", null);
-    __decorate([
-        core_1.Output(), 
-        __metadata('design:type', Object)
-    ], ChatWindow.prototype, "ActiveTabChange", void 0);
-    ChatWindow = __decorate([
-        core_1.Component({
-            selector: 'chat',
-            templateUrl: 'shared/chat/chat.component.html',
-            styleUrls: ['css/main.css']
-        }), 
-        __metadata('design:paramtypes', [data_service_1.DataService])
-    ], ChatWindow);
     return ChatWindow;
 }());
+__decorate([
+    core_1.Input() // Change active tab when a chat button is clicked
+    ,
+    __metadata("design:type", String),
+    __metadata("design:paramtypes", [String])
+], ChatWindow.prototype, "ActiveTab", null);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", Object)
+], ChatWindow.prototype, "ActiveTabChange", void 0);
+ChatWindow = __decorate([
+    core_1.Component({
+        selector: 'chat',
+        templateUrl: 'shared/chat/chat.component.html',
+        styleUrls: ['css/main.css']
+    }),
+    __metadata("design:paramtypes", [data_service_1.DataService])
+], ChatWindow);
 exports.ChatWindow = ChatWindow;
 //# sourceMappingURL=chat.component.js.map

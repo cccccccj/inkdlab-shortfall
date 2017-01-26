@@ -8,8 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var data_service_1 = require('shared/data.service');
+var core_1 = require("@angular/core");
+var data_service_1 = require("shared/data.service");
 var GameService = (function () {
     function GameService(ds) {
         this.ds = ds;
@@ -132,11 +132,11 @@ var GameService = (function () {
             partInventory.splice(index, 1);
         }
     };
-    GameService = __decorate([
-        core_1.Injectable(), 
-        __metadata('design:paramtypes', [data_service_1.DataService])
-    ], GameService);
     return GameService;
 }());
+GameService = __decorate([
+    core_1.Injectable(),
+    __metadata("design:paramtypes", [data_service_1.DataService])
+], GameService);
 exports.GameService = GameService;
 //# sourceMappingURL=game.service.js.map

@@ -8,8 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var data_service_1 = require('shared/data.service');
+var core_1 = require("@angular/core");
+var data_service_1 = require("shared/data.service");
 var BankingWindow = (function () {
     function BankingWindow(ds) {
         this.ds = ds;
@@ -25,15 +25,15 @@ var BankingWindow = (function () {
     BankingWindow.prototype.updateBalance = function (changeValue) {
         this.ds.companyData.balance += changeValue;
     };
-    BankingWindow = __decorate([
-        core_1.Component({
-            selector: 'banking',
-            templateUrl: 'game/banking/banking.component.html',
-            styleUrls: ['css/main.css']
-        }), 
-        __metadata('design:paramtypes', [data_service_1.DataService])
-    ], BankingWindow);
     return BankingWindow;
 }());
+BankingWindow = __decorate([
+    core_1.Component({
+        selector: 'banking',
+        templateUrl: 'game/banking/banking.component.html',
+        styleUrls: ['css/main.css']
+    }),
+    __metadata("design:paramtypes", [data_service_1.DataService])
+], BankingWindow);
 exports.BankingWindow = BankingWindow;
 //# sourceMappingURL=banking.component.js.map

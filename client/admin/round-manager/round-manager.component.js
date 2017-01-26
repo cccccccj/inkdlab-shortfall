@@ -8,8 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var data_service_1 = require('shared/data.service');
+var core_1 = require("@angular/core");
+var data_service_1 = require("shared/data.service");
 var RoundManagerWindow = (function () {
     function RoundManagerWindow(ds) {
         this.ds = ds;
@@ -21,15 +21,15 @@ var RoundManagerWindow = (function () {
     RoundManagerWindow.prototype.nextRound = function (minutes) {
         this.ds.socket.emit('round.change', minutes);
     };
-    RoundManagerWindow = __decorate([
-        core_1.Component({
-            selector: 'round-manager',
-            templateUrl: 'admin/round-manager/round-manager.component.html',
-            styleUrls: ['../css/main.css']
-        }), 
-        __metadata('design:paramtypes', [data_service_1.DataService])
-    ], RoundManagerWindow);
     return RoundManagerWindow;
 }());
+RoundManagerWindow = __decorate([
+    core_1.Component({
+        selector: 'round-manager',
+        templateUrl: 'admin/round-manager/round-manager.component.html',
+        styleUrls: ['../css/main.css']
+    }),
+    __metadata("design:paramtypes", [data_service_1.DataService])
+], RoundManagerWindow);
 exports.RoundManagerWindow = RoundManagerWindow;
 //# sourceMappingURL=round-manager.component.js.map

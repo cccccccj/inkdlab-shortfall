@@ -8,7 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
+var core_1 = require("@angular/core");
 var CompanyDirectoryWindow = (function () {
     function CompanyDirectoryWindow() {
         this.activeTab = 'myCompany';
@@ -28,23 +28,22 @@ var CompanyDirectoryWindow = (function () {
         this.setMode = false;
         this.profileSet.emit();
     };
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Boolean)
-    ], CompanyDirectoryWindow.prototype, "setProfile", void 0);
-    __decorate([
-        core_1.Output(), 
-        __metadata('design:type', Object)
-    ], CompanyDirectoryWindow.prototype, "profileSet", void 0);
-    CompanyDirectoryWindow = __decorate([
-        core_1.Component({
-            selector: 'company-directory',
-            templateUrl: 'game/company-directory/company-directory.component.html',
-            styleUrls: ['css/main.css']
-        }), 
-        __metadata('design:paramtypes', [])
-    ], CompanyDirectoryWindow);
     return CompanyDirectoryWindow;
 }());
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Boolean)
+], CompanyDirectoryWindow.prototype, "setProfile", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", Object)
+], CompanyDirectoryWindow.prototype, "profileSet", void 0);
+CompanyDirectoryWindow = __decorate([
+    core_1.Component({
+        selector: 'company-directory',
+        templateUrl: 'game/company-directory/company-directory.component.html',
+        styleUrls: ['css/main.css']
+    })
+], CompanyDirectoryWindow);
 exports.CompanyDirectoryWindow = CompanyDirectoryWindow;
 //# sourceMappingURL=company-directory.component.js.map

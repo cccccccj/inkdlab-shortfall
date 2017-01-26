@@ -8,15 +8,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
+var core_1 = require("@angular/core");
 //import * as io from 'shared/libraries/socket.io.js';
 //import * as $ from 'shared/libraries/jquery-2.1.1.min.js';
 var io = require('shared/libraries/socket.io.js');
 var $ = require('shared/libraries/jquery-2.1.1.min.js');
-require('shared/libraries/jqueryUI/jquery-ui.min.js');
-require('shared/libraries/simone/simone.min.js');
-require('shared/libraries/simone/i18n/simone.min.custom.js');
-var data_service_1 = require('shared/data.service');
+require("shared/libraries/jqueryUI/jquery-ui.min.js");
+require("shared/libraries/simone/simone.min.js");
+require("shared/libraries/simone/i18n/simone.min.custom.js");
+var data_service_1 = require("shared/data.service");
 var AdminComponent = (function () {
     function AdminComponent(ds) {
         this.ds = ds;
@@ -109,15 +109,15 @@ var AdminComponent = (function () {
             $('#chatWindow').window('moveToTop');
         }
     };
-    AdminComponent = __decorate([
-        core_1.Component({
-            selector: 'admin-app',
-            templateUrl: 'admin/admin.component.html',
-            styleUrls: ['admin/admin.component.css'],
-        }), 
-        __metadata('design:paramtypes', [data_service_1.DataService])
-    ], AdminComponent);
     return AdminComponent;
 }());
+AdminComponent = __decorate([
+    core_1.Component({
+        selector: 'admin-app',
+        templateUrl: 'admin/admin.component.html',
+        styleUrls: ['admin/admin.component.css'],
+    }),
+    __metadata("design:paramtypes", [data_service_1.DataService])
+], AdminComponent);
 exports.AdminComponent = AdminComponent;
 //# sourceMappingURL=admin.component.js.map

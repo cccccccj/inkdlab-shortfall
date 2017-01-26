@@ -8,9 +8,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var data_service_1 = require('shared/data.service');
-var game_service_1 = require('game/game.service');
+var core_1 = require("@angular/core");
+var data_service_1 = require("shared/data.service");
+var game_service_1 = require("game/game.service");
 var PurchaseNegotiationsTab = (function () {
     function PurchaseNegotiationsTab(ds, gs) {
         this.ds = ds;
@@ -200,15 +200,15 @@ var PurchaseNegotiationsTab = (function () {
         this.purchases[i].part = part;
         this.purchases[i].saleCompany = this.saleCompanies[part][0];
     };
-    PurchaseNegotiationsTab = __decorate([
-        core_1.Component({
-            selector: 'p-negotiations-tab',
-            templateUrl: 'game/purchasing/p-negotiations-tab.component.html',
-            styleUrls: ['css/main.css']
-        }), 
-        __metadata('design:paramtypes', [data_service_1.DataService, game_service_1.GameService])
-    ], PurchaseNegotiationsTab);
     return PurchaseNegotiationsTab;
 }());
+PurchaseNegotiationsTab = __decorate([
+    core_1.Component({
+        selector: 'p-negotiations-tab',
+        templateUrl: 'game/purchasing/p-negotiations-tab.component.html',
+        styleUrls: ['css/main.css']
+    }),
+    __metadata("design:paramtypes", [data_service_1.DataService, game_service_1.GameService])
+], PurchaseNegotiationsTab);
 exports.PurchaseNegotiationsTab = PurchaseNegotiationsTab;
 //# sourceMappingURL=p-negotiations-tab.component.js.map

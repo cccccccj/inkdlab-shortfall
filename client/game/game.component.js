@@ -8,16 +8,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
+var core_1 = require("@angular/core");
 //import * as io from 'shared/libraries/socket.io.js';
 //import * as $ from 'shared/libraries/jquery-2.1.1.min.js';
 var io = require('shared/libraries/socket.io.js');
 var $ = require('shared/libraries/jquery-2.1.1.min.js');
-require('shared/libraries/jqueryUI/jquery-ui.min.js');
-require('shared/libraries/simone/simone.min.js');
-require('shared/libraries/simone/i18n/simone.min.custom.js');
-var data_service_1 = require('shared/data.service');
-var game_service_1 = require('game/game.service');
+require("shared/libraries/jqueryUI/jquery-ui.min.js");
+require("shared/libraries/simone/simone.min.js");
+require("shared/libraries/simone/i18n/simone.min.custom.js");
+var data_service_1 = require("shared/data.service");
+var game_service_1 = require("game/game.service");
 var GameComponent = (function () {
     function GameComponent(ds, gs) {
         var _this = this;
@@ -240,15 +240,15 @@ var GameComponent = (function () {
             this.nextRound();
         }
     };
-    GameComponent = __decorate([
-        core_1.Component({
-            selector: 'shortfall-app',
-            templateUrl: 'game/game.component.html',
-            styleUrls: ['game/game.component.css'],
-        }), 
-        __metadata('design:paramtypes', [data_service_1.DataService, game_service_1.GameService])
-    ], GameComponent);
     return GameComponent;
 }());
+GameComponent = __decorate([
+    core_1.Component({
+        selector: 'shortfall-app',
+        templateUrl: 'game/game.component.html',
+        styleUrls: ['game/game.component.css'],
+    }),
+    __metadata("design:paramtypes", [data_service_1.DataService, game_service_1.GameService])
+], GameComponent);
 exports.GameComponent = GameComponent;
 //# sourceMappingURL=game.component.js.map

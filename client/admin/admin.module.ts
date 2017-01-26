@@ -22,6 +22,7 @@ import { DataService } from 'shared/data.service';
       GameSettingsWindow,
       ChatWindow, 
       ChatTab, 
+      OnlineStatus
     ],
   providers: [ DataService ],
   bootstrap: [ AdminComponent ]

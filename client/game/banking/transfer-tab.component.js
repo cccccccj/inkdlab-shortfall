@@ -8,8 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var data_service_1 = require('shared/data.service');
+var core_1 = require("@angular/core");
+var data_service_1 = require("shared/data.service");
 var TransferTab = (function () {
     function TransferTab(ds) {
         this.ds = ds;
@@ -63,15 +63,15 @@ var TransferTab = (function () {
             this.transferAmount = Math.round(this.transferAmount / this.roundTransferTo) * this.roundTransferTo;
         }
     };
-    TransferTab = __decorate([
-        core_1.Component({
-            selector: 'transfer-tab',
-            templateUrl: 'game/banking/transfer-tab.component.html',
-            styleUrls: ['css/main.css']
-        }), 
-        __metadata('design:paramtypes', [data_service_1.DataService])
-    ], TransferTab);
     return TransferTab;
 }());
+TransferTab = __decorate([
+    core_1.Component({
+        selector: 'transfer-tab',
+        templateUrl: 'game/banking/transfer-tab.component.html',
+        styleUrls: ['css/main.css']
+    }),
+    __metadata("design:paramtypes", [data_service_1.DataService])
+], TransferTab);
 exports.TransferTab = TransferTab;
 //# sourceMappingURL=transfer-tab.component.js.map

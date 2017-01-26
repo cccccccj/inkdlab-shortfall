@@ -8,8 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var data_service_1 = require('shared/data.service');
+var core_1 = require("@angular/core");
+var data_service_1 = require("shared/data.service");
 var ChatButton = (function () {
     function ChatButton(ds) {
         this.ds = ds;
@@ -18,19 +18,19 @@ var ChatButton = (function () {
     ChatButton.prototype.onClick = function () {
         this.ds.onChat(this.company);
     };
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', String)
-    ], ChatButton.prototype, "company", void 0);
-    ChatButton = __decorate([
-        core_1.Component({
-            selector: 'chat-button',
-            templateUrl: 'shared/chat/chat-button.component.html',
-            styleUrls: ['shared/chat/chat-button.component.css']
-        }), 
-        __metadata('design:paramtypes', [data_service_1.DataService])
-    ], ChatButton);
     return ChatButton;
 }());
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String)
+], ChatButton.prototype, "company", void 0);
+ChatButton = __decorate([
+    core_1.Component({
+        selector: 'chat-button',
+        templateUrl: 'shared/chat/chat-button.component.html',
+        styleUrls: ['shared/chat/chat-button.component.css']
+    }),
+    __metadata("design:paramtypes", [data_service_1.DataService])
+], ChatButton);
 exports.ChatButton = ChatButton;
 //# sourceMappingURL=chat-button.component.js.map

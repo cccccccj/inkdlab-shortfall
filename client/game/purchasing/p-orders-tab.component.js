@@ -8,9 +8,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var data_service_1 = require('shared/data.service');
-var game_service_1 = require('game/game.service');
+var core_1 = require("@angular/core");
+var data_service_1 = require("shared/data.service");
+var game_service_1 = require("game/game.service");
 var PurchaseOrdersTab = (function () {
     function PurchaseOrdersTab(ds, gs) {
         this.ds = ds;
@@ -139,15 +139,15 @@ var PurchaseOrdersTab = (function () {
     PurchaseOrdersTab.prototype.toggleDetails = function (i) {
         this.hideDetails[i] = !this.hideDetails[i];
     };
-    PurchaseOrdersTab = __decorate([
-        core_1.Component({
-            selector: 'p-orders-tab',
-            templateUrl: 'game/purchasing/p-orders-tab.component.html',
-            styleUrls: ['css/main.css']
-        }), 
-        __metadata('design:paramtypes', [data_service_1.DataService, game_service_1.GameService])
-    ], PurchaseOrdersTab);
     return PurchaseOrdersTab;
 }());
+PurchaseOrdersTab = __decorate([
+    core_1.Component({
+        selector: 'p-orders-tab',
+        templateUrl: 'game/purchasing/p-orders-tab.component.html',
+        styleUrls: ['css/main.css']
+    }),
+    __metadata("design:paramtypes", [data_service_1.DataService, game_service_1.GameService])
+], PurchaseOrdersTab);
 exports.PurchaseOrdersTab = PurchaseOrdersTab;
 //# sourceMappingURL=p-orders-tab.component.js.map

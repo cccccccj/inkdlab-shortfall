@@ -8,8 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var data_service_1 = require('shared/data.service');
+var core_1 = require("@angular/core");
+var data_service_1 = require("shared/data.service");
 var ChatTab = (function () {
     //    @ViewChild('scrollMe') private myScrollContainer: ElementRef;
     function ChatTab(ds) {
@@ -70,24 +70,24 @@ var ChatTab = (function () {
             this.message = '';
         }
     };
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', String)
-    ], ChatTab.prototype, "withCompany", void 0);
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Object), 
-        __metadata('design:paramtypes', [Object])
-    ], ChatTab.prototype, "NewChat", null);
-    ChatTab = __decorate([
-        core_1.Component({
-            selector: 'chat-tab',
-            templateUrl: 'shared/chat/chat-tab.component.html',
-            styleUrls: ['css/main.css']
-        }), 
-        __metadata('design:paramtypes', [data_service_1.DataService])
-    ], ChatTab);
     return ChatTab;
 }());
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String)
+], ChatTab.prototype, "withCompany", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object),
+    __metadata("design:paramtypes", [Object])
+], ChatTab.prototype, "NewChat", null);
+ChatTab = __decorate([
+    core_1.Component({
+        selector: 'chat-tab',
+        templateUrl: 'shared/chat/chat-tab.component.html',
+        styleUrls: ['css/main.css']
+    }),
+    __metadata("design:paramtypes", [data_service_1.DataService])
+], ChatTab);
 exports.ChatTab = ChatTab;
 //# sourceMappingURL=chat-tab.component.js.map

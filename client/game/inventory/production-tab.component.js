@@ -8,9 +8,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var data_service_1 = require('shared/data.service');
-var game_service_1 = require('game/game.service');
+var core_1 = require("@angular/core");
+var data_service_1 = require("shared/data.service");
+var game_service_1 = require("game/game.service");
 var ProductionTab = (function () {
     function ProductionTab(ds, gs) {
         this.ds = ds;
@@ -92,15 +92,15 @@ var ProductionTab = (function () {
     ProductionTab.prototype.roundQuantity = function () {
         this.production.quantity = Math.round(this.production.quantity / this.roundQuantityTo) * this.roundQuantityTo;
     };
-    ProductionTab = __decorate([
-        core_1.Component({
-            selector: 'production-tab',
-            templateUrl: 'game/inventory/production-tab.component.html',
-            styleUrls: ['game/inventory/production-tab.component.css']
-        }), 
-        __metadata('design:paramtypes', [data_service_1.DataService, game_service_1.GameService])
-    ], ProductionTab);
     return ProductionTab;
 }());
+ProductionTab = __decorate([
+    core_1.Component({
+        selector: 'production-tab',
+        templateUrl: 'game/inventory/production-tab.component.html',
+        styleUrls: ['game/inventory/production-tab.component.css']
+    }),
+    __metadata("design:paramtypes", [data_service_1.DataService, game_service_1.GameService])
+], ProductionTab);
 exports.ProductionTab = ProductionTab;
 //# sourceMappingURL=production-tab.component.js.map

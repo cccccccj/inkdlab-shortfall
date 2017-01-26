@@ -8,9 +8,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var data_service_1 = require('shared/data.service');
-var game_service_1 = require('game/game.service');
+var core_1 = require("@angular/core");
+var data_service_1 = require("shared/data.service");
+var game_service_1 = require("game/game.service");
 var MyCompanyTab = (function () {
     function MyCompanyTab(ds, gs) {
         this.ds = ds;
@@ -96,23 +96,23 @@ var MyCompanyTab = (function () {
             setTimeout(function () { _this.companyTaken = false; }, 2000);
         });
     };
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Boolean)
-    ], MyCompanyTab.prototype, "setMode", void 0);
-    __decorate([
-        core_1.Output(), 
-        __metadata('design:type', Object)
-    ], MyCompanyTab.prototype, "profileSet", void 0);
-    MyCompanyTab = __decorate([
-        core_1.Component({
-            selector: 'my-company-tab',
-            templateUrl: 'game/company-directory/my-company-tab.component.html',
-            styleUrls: ['css/main.css']
-        }), 
-        __metadata('design:paramtypes', [data_service_1.DataService, game_service_1.GameService])
-    ], MyCompanyTab);
     return MyCompanyTab;
 }());
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Boolean)
+], MyCompanyTab.prototype, "setMode", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", Object)
+], MyCompanyTab.prototype, "profileSet", void 0);
+MyCompanyTab = __decorate([
+    core_1.Component({
+        selector: 'my-company-tab',
+        templateUrl: 'game/company-directory/my-company-tab.component.html',
+        styleUrls: ['css/main.css']
+    }),
+    __metadata("design:paramtypes", [data_service_1.DataService, game_service_1.GameService])
+], MyCompanyTab);
 exports.MyCompanyTab = MyCompanyTab;
 //# sourceMappingURL=my-company-tab.component.js.map

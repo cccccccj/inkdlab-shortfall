@@ -8,7 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
+var core_1 = require("@angular/core");
 var SignupComponent = (function () {
     function SignupComponent() {
         this.name = '';
@@ -45,19 +45,18 @@ var SignupComponent = (function () {
         };
         this.socket.emit('user.signup', signupData);
     };
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Object)
-    ], SignupComponent.prototype, "socket", void 0);
-    SignupComponent = __decorate([
-        core_1.Component({
-            selector: 'signup',
-            templateUrl: 'home/signup.component.html',
-            styleUrls: ['home/signup.component.css'],
-        }), 
-        __metadata('design:paramtypes', [])
-    ], SignupComponent);
     return SignupComponent;
 }());
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object)
+], SignupComponent.prototype, "socket", void 0);
+SignupComponent = __decorate([
+    core_1.Component({
+        selector: 'signup',
+        templateUrl: 'home/signup.component.html',
+        styleUrls: ['home/signup.component.css'],
+    })
+], SignupComponent);
 exports.SignupComponent = SignupComponent;
 //# sourceMappingURL=signup.component.js.map

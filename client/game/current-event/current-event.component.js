@@ -8,9 +8,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var data_service_1 = require('shared/data.service');
-var game_service_1 = require('game/game.service');
+var core_1 = require("@angular/core");
+var data_service_1 = require("shared/data.service");
+var game_service_1 = require("game/game.service");
 var CurrentEventWindow = (function () {
     function CurrentEventWindow(ds, gs) {
         this.ds = ds;
@@ -35,19 +35,19 @@ var CurrentEventWindow = (function () {
             this.eventsResolved.emit();
         }
     };
-    __decorate([
-        core_1.Output(), 
-        __metadata('design:type', Object)
-    ], CurrentEventWindow.prototype, "eventsResolved", void 0);
-    CurrentEventWindow = __decorate([
-        core_1.Component({
-            selector: 'current-event',
-            templateUrl: 'game/current-event/current-event.component.html',
-            styleUrls: ['css/main.css']
-        }), 
-        __metadata('design:paramtypes', [data_service_1.DataService, game_service_1.GameService])
-    ], CurrentEventWindow);
     return CurrentEventWindow;
 }());
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", Object)
+], CurrentEventWindow.prototype, "eventsResolved", void 0);
+CurrentEventWindow = __decorate([
+    core_1.Component({
+        selector: 'current-event',
+        templateUrl: 'game/current-event/current-event.component.html',
+        styleUrls: ['css/main.css']
+    }),
+    __metadata("design:paramtypes", [data_service_1.DataService, game_service_1.GameService])
+], CurrentEventWindow);
 exports.CurrentEventWindow = CurrentEventWindow;
 //# sourceMappingURL=current-event.component.js.map

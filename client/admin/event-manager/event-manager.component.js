@@ -8,8 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var data_service_1 = require('shared/data.service');
+var core_1 = require("@angular/core");
+var data_service_1 = require("shared/data.service");
 var EventManagerWindow = (function () {
     function EventManagerWindow(ds) {
         this.ds = ds;
@@ -67,15 +67,15 @@ var EventManagerWindow = (function () {
     EventManagerWindow.prototype.onSelect = function (eventId) {
         this.selectedId = eventId;
     };
-    EventManagerWindow = __decorate([
-        core_1.Component({
-            selector: 'event-manager',
-            templateUrl: 'admin/event-manager/event-manager.component.html',
-            styleUrls: ['admin/event-manager/event-manager.component.css']
-        }), 
-        __metadata('design:paramtypes', [data_service_1.DataService])
-    ], EventManagerWindow);
     return EventManagerWindow;
 }());
+EventManagerWindow = __decorate([
+    core_1.Component({
+        selector: 'event-manager',
+        templateUrl: 'admin/event-manager/event-manager.component.html',
+        styleUrls: ['admin/event-manager/event-manager.component.css']
+    }),
+    __metadata("design:paramtypes", [data_service_1.DataService])
+], EventManagerWindow);
 exports.EventManagerWindow = EventManagerWindow;
 //# sourceMappingURL=event-manager.component.js.map

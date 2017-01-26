@@ -8,8 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var data_service_1 = require('shared/data.service');
+var core_1 = require("@angular/core");
+var data_service_1 = require("shared/data.service");
 var GameSettingsWindow = (function () {
     function GameSettingsWindow(ds) {
         this.ds = ds;
@@ -35,15 +35,15 @@ var GameSettingsWindow = (function () {
     GameSettingsWindow.prototype.roundBalance = function () {
         this.ds.gameData.initialBalance = Math.round(this.ds.gameData.initialBalance / this.initialBalanceRoundTo) * this.initialBalanceRoundTo;
     };
-    GameSettingsWindow = __decorate([
-        core_1.Component({
-            selector: 'game-settings',
-            templateUrl: 'admin/game-settings/game-settings.component.html',
-            styleUrls: ['admin/game-settings/game-settings.component.css']
-        }), 
-        __metadata('design:paramtypes', [data_service_1.DataService])
-    ], GameSettingsWindow);
     return GameSettingsWindow;
 }());
+GameSettingsWindow = __decorate([
+    core_1.Component({
+        selector: 'game-settings',
+        templateUrl: 'admin/game-settings/game-settings.component.html',
+        styleUrls: ['admin/game-settings/game-settings.component.css']
+    }),
+    __metadata("design:paramtypes", [data_service_1.DataService])
+], GameSettingsWindow);
 exports.GameSettingsWindow = GameSettingsWindow;
 //# sourceMappingURL=game-settings.component.js.map

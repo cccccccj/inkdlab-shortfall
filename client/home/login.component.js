@@ -8,7 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
+var core_1 = require("@angular/core");
 var LoginComponent = (function () {
     function LoginComponent() {
         this.username = '';
@@ -40,19 +40,18 @@ var LoginComponent = (function () {
         };
         this.socket.emit('user.login', loginData);
     };
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Object)
-    ], LoginComponent.prototype, "socket", void 0);
-    LoginComponent = __decorate([
-        core_1.Component({
-            selector: 'login',
-            templateUrl: 'home/login.component.html',
-            styleUrls: ['home/login.component.css'],
-        }), 
-        __metadata('design:paramtypes', [])
-    ], LoginComponent);
     return LoginComponent;
 }());
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object)
+], LoginComponent.prototype, "socket", void 0);
+LoginComponent = __decorate([
+    core_1.Component({
+        selector: 'login',
+        templateUrl: 'home/login.component.html',
+        styleUrls: ['home/login.component.css'],
+    })
+], LoginComponent);
 exports.LoginComponent = LoginComponent;
 //# sourceMappingURL=login.component.js.map

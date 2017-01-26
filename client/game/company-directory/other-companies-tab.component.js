@@ -8,8 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var data_service_1 = require('shared/data.service');
+var core_1 = require("@angular/core");
+var data_service_1 = require("shared/data.service");
 var OtherCompaniesTab = (function () {
     function OtherCompaniesTab(ds) {
         this.ds = ds;
@@ -69,15 +69,15 @@ var OtherCompaniesTab = (function () {
             { data: this.social, label: 'Social' }
         ];
     };
-    OtherCompaniesTab = __decorate([
-        core_1.Component({
-            selector: 'other-companies-tab',
-            templateUrl: 'game/company-directory/other-companies-tab.component.html',
-            styleUrls: ['css/main.css']
-        }), 
-        __metadata('design:paramtypes', [data_service_1.DataService])
-    ], OtherCompaniesTab);
     return OtherCompaniesTab;
 }());
+OtherCompaniesTab = __decorate([
+    core_1.Component({
+        selector: 'other-companies-tab',
+        templateUrl: 'game/company-directory/other-companies-tab.component.html',
+        styleUrls: ['css/main.css']
+    }),
+    __metadata("design:paramtypes", [data_service_1.DataService])
+], OtherCompaniesTab);
 exports.OtherCompaniesTab = OtherCompaniesTab;
 //# sourceMappingURL=other-companies-tab.component.js.map

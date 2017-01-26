@@ -8,8 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var data_service_1 = require('shared/data.service');
+var core_1 = require("@angular/core");
+var data_service_1 = require("shared/data.service");
 var LedgerTab = (function () {
     function LedgerTab(ds) {
         this.ds = ds;
@@ -61,19 +61,19 @@ var LedgerTab = (function () {
                 return (transaction.type == 'Transfer');
         }
     };
-    __decorate([
-        core_1.Output(), 
-        __metadata('design:type', Object)
-    ], LedgerTab.prototype, "balanceChange", void 0);
-    LedgerTab = __decorate([
-        core_1.Component({
-            selector: 'ledger-tab',
-            templateUrl: 'game/banking/ledger-tab.component.html',
-            styleUrls: ['css/main.css']
-        }), 
-        __metadata('design:paramtypes', [data_service_1.DataService])
-    ], LedgerTab);
     return LedgerTab;
 }());
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", Object)
+], LedgerTab.prototype, "balanceChange", void 0);
+LedgerTab = __decorate([
+    core_1.Component({
+        selector: 'ledger-tab',
+        templateUrl: 'game/banking/ledger-tab.component.html',
+        styleUrls: ['css/main.css']
+    }),
+    __metadata("design:paramtypes", [data_service_1.DataService])
+], LedgerTab);
 exports.LedgerTab = LedgerTab;
 //# sourceMappingURL=ledger-tab.component.js.map
