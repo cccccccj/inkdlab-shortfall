@@ -35,8 +35,11 @@ MongoClient.connect(mongoURI, function(err, database) {
     } else {
         console.log('Connected to MongoDB server.', mongoURI);
         
-        app.listen(app.get('port'), function() {
-            console.log('App running on ', app.get('port'));
+//        app.listen(app.get('port'), function() {
+//            console.log('App running on ', app.get('port'));
+//        });
+        server.listen(app.get('port'), function() {
+           console.log('Listening on port %s...', server.address().port); 
         });
         
         db = database;
