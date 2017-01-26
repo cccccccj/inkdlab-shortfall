@@ -54,7 +54,7 @@ MongoClient.connect(mongoURI, function(err, database) {
         
         var counter = 0; // Counter for company
         
-        homeSocket = io.of('/home');
+        homeSocket = io.of();
         
         homeSocket.on('connection', function (socket) {
             
