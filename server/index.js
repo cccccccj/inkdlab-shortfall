@@ -18,9 +18,9 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, '../client', '/index.html'));
 });
 
-//server.listen(8080, function() {
-//   console.log('Listening on port %s...', server.address().port); 
-//});
+server.listen(app.get('port'), function() {
+   console.log('Listening on port %s...', server.address().port); 
+});
 
 var db, users, gameData, events;
 var companies, negotiations, transactions, messages;
@@ -38,9 +38,9 @@ MongoClient.connect(mongoURI, function(err, database) {
 //        app.listen(app.get('port'), function() {
 //            console.log('App running on ', app.get('port'));
 //        });
-        server.listen(app.get('port'), function() {
-           console.log('Listening on port %s...', server.address().port); 
-        });
+//        server.listen(app.get('port'), function() {
+//           console.log('Listening on port %s...', server.address().port); 
+//        });
         
         db = database;
         
