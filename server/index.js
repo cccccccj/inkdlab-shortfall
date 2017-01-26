@@ -8,16 +8,19 @@ var io = require('socket.io').listen(server);
 
 var mongodb = require('mongodb');
 var MongoClient = mongodb.MongoClient;
-var url = 'mongodb://localhost:27017/shortfall';
+//var mongoURI = 'mongodb://localhost:27017/shortfall';
+var mongoURI = 'mongodb://localhost:27017/shortfall';
+
+app.set('port', (process.env.PORT || 8080));
 
 app.use(express.static(path.join(__dirname, '../client')));
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, '../client', '/index.html'));
 });
 
-server.listen(8080, function() {
-   console.log('Listening on port %s...', server.address().port); 
-});
+//server.listen(8080, function() {
+//   console.log('Listening on port %s...', server.address().port); 
+//});
 
 var db, users, gameData, events;
 var companies, negotiations, transactions, messages;
@@ -25,12 +28,16 @@ var sockets = {};
 var homeSocket, gameSocket, adminSocket;
 var parts = ['Chassis', 'Exhaust', 'Transmission', 'Engine'];
 
-MongoClient.connect(url, function(err, database) {
+MongoClient.connect(mongoURI, function(err, database) {
     if (err) {
         console.log('Unable to connect to MongoDB server. Error:', err);
         throw err;
     } else {
-        console.log('Connected to MongoDB server.', url);
+        console.log('Connected to MongoDB server.', mongoURI);
+        
+        app.listen(app.get('port'), function() {
+            console.log('App running on ', app.get('port'));
+        });
         
         db = database;
         
