@@ -1,0 +1,105 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.chat__container {
+    margin-top: 20px;
+    padding: 5px;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+.navtab {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    list-style-type: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1rem;
+    letter-spacing: 0.0525rem;
+    //nav elements
+    &__item {
+        font-size: 0.7rem;
+        display: inline-block; 
+        padding: 0.5em;
+        margin: 0;
+        transition: ease 1s;
+    }
+
+    &__item:first-child {
+        display: inline-block; 
+        border-radius: 8px 0 0 8px;
+        border-left: 0 none;
+    }
+
+    &__item:last-child {
+        display: inline-block; 
+        border-radius: 0 8px 8px 0;
+        border-left: 1px solid $component-nav-bg-active;
+    }
+    //states of nav elements
+    &__item--orange {
+        background-color: $component-nav-bg;
+        color: $component-nav-text;
+        border: 1px solid $component-nav-border;
+        border-left: 1px solid $component-nav-bg-active;
+    }
+
+    &__item:hover {
+        background-color: $component-nav-hover;
+        cursor: pointer;
+    }
+
+    &__item--active {
+        color: $component-nav-text-active;
+        background-color: $component-nav-bg-active;
+        border: 1px solid $component-nav-border-active;
+    }
+
+    &__item--active:hover {
+        cursor: default;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+.companylist__item--online, .companylist__item--offline, .companylist__item--computer, .navtab__item--online, .navtab__item--offline, .navtab__item--computer { 
+    width: 10px;
+    height: 10px;
+}
+
+.chat__btn-close {
+    background-image: url('../shared/images/close.png');
+    background-size: 16px 16px;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 10px;
+    height: 10px;
+    border-radius: 8px;
+    border: none;
+    outline: none;  
+}
+
+.companylist {
+    border-radius: 5px;
+    background-color: $chat-container-background;
+    list-style-type: none;
+
+    &__item {
+    cursor: pointer;
+    color: $chat-msg-text;
+    font-size: 0.85rem;
+    padding: 5px;
+        
+        //states
+        &:hover {
+            border-radius: 5px;
+            background-color: $primary-select-color;
+            // border: 1px solid $secondary-divider-color; 
+        }
+    }    
+}

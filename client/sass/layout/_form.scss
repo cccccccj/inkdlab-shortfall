@@ -1,0 +1,30 @@
+//Login and signups forms - homepage
+.login-form, .signup-form {
+  color: $text-home-color;
+  padding: 10px;
+}
+
+.login-form input[type=text], .login-form input[type=password], .login-form select, .signup-form input[type=text], .signup-form input[type=password], .signup-form select {
+    width: 100%;
+    padding: 12px 10px;
+    margin: 10px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+.login-form select, .signup-form select {
+  height: 40px;
+  outline: none;
+}
+.login-form input, .signup-form input {
+   outline: none;
+}
+.login-form input:focus, .signup-form input:focus {
+    background-color: $background-focus-color;
+}
+
+.login-form label, .signup-form label  {
+  color: $text-home-color;
+}    

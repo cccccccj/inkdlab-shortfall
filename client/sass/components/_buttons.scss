@@ -1,0 +1,38 @@
+//Homepage buttons
+.btn--login {
+  @include btn(200px, $accent-color, $accent-color-dark, $primary-text-color);
+  margin: 150px auto;
+  font-size: 1.2em;
+}
+
+.btn--signup {
+  @include btn(200px, $white, $accent-color-dark, $primary-text-color);
+  border: 1px solid $accent-color;
+  margin: 150px auto;
+  font-size: 1.2em;
+}
+
+//Button states
+.btn--disable {
+  @include btn(200px, $accent-color-light, $accent-color-light, $primary-text-color);
+  border: 1px solid $accent-color-light;
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+//Action button 
+.btn--action {
+  @include btn (200px, $accent-color, $accent-color-dark, $primary-color-text);
+  font-size: 0.7em;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  margin-top: 15px;
+}
+
+//Form button
+.btn--submit {
+  @include btn(220px, $accent-color, $accent-color-dark, $primary-color-text);
+  margin: 0 auto;
+  font-size: 1em;
+}
+

@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    position: absolute;
+    min-width: 90%;
+    min-height: 90%;
+}
+
+.box-default {
+	width: 80%;
+	margin: 15px auto 0 auto;
+	padding: 5%;
+	border-radius: 5px;
+	background-color: $primary-color-light;
+}
+.box-default__text {
+	margin-bottom: 10px;
+}
+.box-default__input {
+	    outline: none;
+        border: none;
+        padding: 3px;
+        margin: 3px;
+        border-radius: 5px;
+}
+.box-default__btn {
+	@include btn(80px,$accent-color, $accent-color-dark, $primary-color-text);
+	font-size: 0.5em;
+	padding: 5px;
+	text-transform: uppercase;
+}
+
+.datatext {
+	text-align: center;
+	margin-top: 15px;
+}

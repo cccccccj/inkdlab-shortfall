@@ -1,0 +1,120 @@
+.top {
+    font-size: 0.8rem;
+    padding-bottom: 5px;
+    // border-bottom: 1px solid $component-top-bottomborder;
+}
+
+.form-default {
+    width: 100%;
+    display: table;
+    background-color: $primary-color-light;
+    padding: 5px;
+    border-radius: 5px;
+
+    &__filter {
+        display: table-cell;
+        background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDIwLjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCA0LjkgMTAiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDQuOSAxMDsiIHhtbDpzcGFjZT0icHJlc2VydmUiPgo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPgoJLnN0MHtmaWxsOiM0NDQ0NDQ7fQo8L3N0eWxlPgo8dGl0bGU+YXJyb3dzPC90aXRsZT4KPHBvbHlnb24gY2xhc3M9InN0MCIgcG9pbnRzPSIxLjQsNC43IDIuNSwzLjIgMy41LDQuNyAiLz4KPHBvbHlnb24gY2xhc3M9InN0MCIgcG9pbnRzPSIzLjUsNS4zIDIuNSw2LjggMS40LDUuMyAiLz4KPC9zdmc+Cg==)no-repeat 98% 50%;
+        background-color: $white;
+        font-size: 0.8rem;
+        text-align-last: center;
+        padding: 2px;
+        outline: none;
+        box-shadow: none;
+        border: 1px solid $transparent;
+        padding: 5px;
+        margin: 5px;
+    }
+    
+    &__input {
+        display: table-cell;
+        outline: none;
+        border: none;
+        padding: 5px;
+        margin: 5px;
+        border-radius: 5px;
+    }
+
+    &__label {
+        display: table-cell;
+        text-align: left;
+    }
+    
+    &__input:focus {
+        background-color: $background-focus-color;
+    }
+
+    &--aligned {
+        display: table-row;
+    }   
+}
+
+
+// .textColumn {
+//     min-width: 170px;
+// }
+
+// .valueColumn {
+//     min-width: 280px;
+// }
+
+.confirmText {
+    font-size: 0.9em;
+    color: brown;
+}
+
+// table {
+//     font-size: 0.9em;
+// }
+
+// .noteBox {
+//     width: 200px;
+// }
+
+.online, .offline, .computer { 
+    width: 15px;
+    height: 15px;
+}
+
+.confirmOverlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: 0px;
+    background-color: rgba(30,30,30,0.7);
+}
+
+.confirmBox {
+    min-width: 250px;
+    min-height: 60px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: floralwhite;
+    border-radius: 5px;
+    font-size: 0.8em;
+    padding: 10px;
+    text-align: center;
+}
+
+.btn__chat {
+    background-color: $secondary-text-color-dark;
+    background-image: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0ZWQgYnkgSWNvTW9vbi5pbyAtLT4KPCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9IjAgMCAxNiAxNiI+CjxwYXRoIGZpbGw9IiNGRkZGRkYiIGQ9Ik0xNC4yIDE0YzAuNi0wLjUgMS44LTEuNiAxLjgtMy4yIDAtMS40LTEuMi0yLjYtMi44LTMuMyAwLjUtMC42IDAuOC0xLjUgMC44LTIuNCAwLTIuOC0yLjktNS4xLTYuNi01LjEtMy41IDAtNy40IDIuMS03LjQgNS4xIDAgMi4xIDEuNiAzLjYgMi4zIDQuMi0wLjEgMS4yLTAuNiAxLjctMC42IDEuN2wtMS4yIDFoMS41YzEuMiAwIDIuMi0wLjMgMy0wLjcgMC4zIDEuOSAyLjUgMy40IDUuMyAzLjQgMC4xIDAgMC4zIDAgMC41IDAgMC42IDAuNSAxLjggMS4zIDMuNSAxLjNoMS40bC0xLjEtMC45YzAgMC0wLjMtMC4zLTAuNC0xLjF6TTEwLjMgMTMuN2MtMi4zIDAtNC4zLTEuMy00LjMtMi44IDAtMC4xIDAtMC4xIDAtMC4yIDAuMi0wLjIgMC40LTAuMyAwLjUtMC41IDAuMiAwIDAuNSAwIDAuNyAwIDIuMSAwIDQtMC43IDUuMi0xLjkgMS41IDAuNSAyLjYgMS41IDIuNiAyLjVzLTAuOSAyLTEuNyAyLjVsLTAuMyAwLjJ2MC4zYzAgMC41IDAuMiAwLjggMC4zIDEuMS0xLTAuMi0xLjctMC43LTEuOS0xbC0wLjEtMC4yaC0wLjJjLTAuMyAwLTAuNiAwLTAuOCAwek03LjQgMWMzLjEgMCA1LjYgMS45IDUuNiA0LjFzLTIuNiA0LjEtNS44IDQuMWMtMC4yIDAtMC42IDAtMC44IDBoLTAuM2wtMC4xIDAuMmMtMC4zIDAuNC0xLjUgMS4yLTMuMSAxLjUgMC4xLTAuNCAwLjEtMSAwLjEtMS44di0wLjNjLTEtMC44LTIuMS0yLjItMi4xLTMuNiAwLTIuMiAzLjItNC4yIDYuNS00LjJ6Ii8+Cjwvc3ZnPgo=);
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 45px;
+    height: 25px;
+    border: 0;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+}
+.btn__table {
+    background-color: $secondary-text-color-dark;
+    color: $white;
+    border: 0;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+}

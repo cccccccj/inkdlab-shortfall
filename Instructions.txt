@@ -1,0 +1,17 @@
+Instructions:
+
+- install dependencies using 'npm install’ in ‘client’ folder
+- install dependencies using ’npm install’ in ‘server’ folder
+- delete old ‘shortfall’ database if it exists (in mongo shell)
+	- use shortfall
+	- db.dropDatabase()
+- import the following mock data into mongodb on the command line (not in mongo shell)
+	- ‘mongoimport --jsonArray --db shortfall --collection gameData < /Users/………[your path]……/mock-gameData.json’
+	- ‘mongoimport --jsonArray --db shortfall --collection events < /Users/………[your path]……/mock-events.json’
+	- ‘mongoimport --jsonArray --db shortfall --collection companies < /Users/………[your path]……/mock-companies.json’
+- start ‘mongod’ process
+	- mongod -f /Users/………[your path]……/mongoDB/mongod.conf
+- start server using ‘node index’ in ‘server’ folder
+- for Angular 2 development, run ’npm start’ in ‘client’ folder
+- works on ‘localhost:8080/'
+- create an Admin account first, otherwise Player screen will not load properly

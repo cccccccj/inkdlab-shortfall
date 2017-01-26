@@ -1,0 +1,29 @@
+body, html {
+  @include cover('../img/home/home-bg.jpg');
+}
+.wrapper {
+  hcompeight: 100%;
+  min-height: 100%;
+  @extend %flex-centralize;
+}
+
+.home-form {
+  @include widget ($background-secundary-color, $background-heading-color, $font-home-title, $white);
+  @extend %fadein-effect;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+.list-home {
+   list-style-type: none;
+}
+.list-home__item {
+  display: inline-block;
+  background-color: transparent;
+  color: $text-home-color;
+  border-bottom: 1px solid $black;
+  cursor: pointer;
+}

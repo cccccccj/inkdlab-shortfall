@@ -1,0 +1,148 @@
+[{
+    "company": "Grand Cars",
+    "part": "Car",
+    "player": "computer",
+    "balance": 10000000
+},
+{
+    "company": "Affordable Cars",
+    "part": "Car",
+    "player": "computer",
+    "balance": 10000000
+},
+{
+    "company": "American Chassis",
+    "part": "Chassis",
+    "player": "human",
+    "online": false,
+    "balance": 10000000,
+    "inventory": {
+        "Chassis": [
+            {
+                mechQuality: "A",
+                greenScore: 50,
+                quantity: 300
+            },
+            {
+                mechQuality: "B",
+                greenScore: 60,
+                quantity: 400
+            } 
+        ],
+        "Exhaust": [
+            
+        ],
+        "Transmission": [
+            
+        ],
+        "Engine": [
+            
+        ]
+    }
+},
+{
+    "company": "Better Chassis",
+    "part": "Chassis",
+    "player": "human",
+    "online": false,
+    "balance": 10000000
+},
+{
+    "company": "Pro Chassis",
+    "part": "Chassis",
+    "player": "computer",
+    "balance": 10000000
+},
+{
+    "company": "Jiffy Exhaust",
+    "part": "Exhaust",
+    "player": "human",
+    "online": false,
+    "balance": 10000000
+},
+{
+    "company": "Fabulous Transmissions",
+    "part": "Transmission",
+    "player": "human",
+    "online": false,
+    "balance": 10000000
+},
+{
+    "company": "Better Engines",
+    "part": "Engine",
+    "player": "human",
+    "online": false,
+    "balance": 10000000
+},
+{
+    "company": "Exhaust Pipe Company",
+    "part": "Exhaust Pipe",
+    "player": "computer",
+    "balance": 10000000
+},
+{
+    "company": "Muffler Company",
+    "part": "Muffler",
+    "player": "computer",
+    "balance": 10000000
+},
+{
+    "company": "Catalytic Converter Company",
+    "part": "Catalytic Converter",
+    "player": "computer",
+    "balance": 10000000
+},
+{
+    "company": "Governor Company",
+    "part": "Governor",
+    "player": "computer",
+    "balance": 10000000
+},
+{
+    "company": "Planetary Gear Company",
+    "part": "Planetary Gear",
+    "player": "computer",
+    "balance": 10000000
+},
+{
+    "company": "Clutch Company",
+    "part": "Clutch",
+    "player": "computer",
+    "balance": 10000000
+},
+{
+    "company": "Great Crankshafts",
+    "part": "Crankshaft",
+    "player": "computer",
+    "balance": 10000000
+},
+{
+    "company": "Pluto Crankshafts",
+    "part": "Crankshaft",
+    "player": "computer",
+    "balance": 10000000
+},
+{
+    "company": "Neptune Spark Plugs",
+    "part": "Spark Plug",
+    "player": "computer",
+    "balance": 10000000
+},
+{
+    "company": "Sparky Spark Plugs",
+    "part": "Spark Plug",
+    "player": "computer",
+    "balance": 10000000
+},
+{
+    "company": "Blue Piston",
+    "part": "Piston",
+    "player": "computer",
+    "balance": 10000000
+},
+{
+    "company": "Magnificent Pistons",
+    "part": "Piston",
+    "player": "computer",
+    "balance": 10000000
+}]

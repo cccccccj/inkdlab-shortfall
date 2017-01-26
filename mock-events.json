@@ -1,0 +1,114 @@
+[{
+    "event1": {
+        "title":  "Event Title 1",
+        "description": "Some event that needs to be immediately resolved",
+        "resolveType": "immediate",
+        "options": ["Option 1", "Option 2"]
+    },
+    "event2": {
+        "title": "Event Title 2",
+        "description": "Some event that needs to be resolved by end of round",
+        "resolveType": "endOfRound",
+        "options": ["Option 1", "Option 2"]
+    },
+    "event3": {
+        "title": "Event Title 3",
+        "description": "Some event that causes another event",
+        "resolveType": "extended"
+    },
+    "event4": {
+        "title": "Event Title 4",
+        "description": "Some event that needs to be immediately resolved",
+        "resolveType": "immediate",
+        "options": ["Option 1", "Option 2"]
+    },
+    "event5": {
+        "title": "Event Title 5",
+        "description": "Some event caused by previous event",
+        "resolveType": "extended"
+    },
+   "event6": {
+       "title":  "Event Title 6",
+       "description": "Some event that needs to be immediately resolved",
+       "resolveType": "immediate",
+        "options": ["Option 1", "Option 2"]
+    },
+    "event7": {
+        "title": "Event Title 7",
+        "description": "Some event that needs to be resolved by end of round",
+        "resolveType": "endOfRound",
+        "options": ["Option 1", "Option 2"]
+    },
+    "event8": {
+        "title": "Event Title 8",
+        "description": "Some event that causes another event",
+        "resolveType": "extended"
+    },
+    "event9": {
+        "title": "Event Title 9",
+        "description": "Some event that needs to be immediately resolved",
+        "resolveType": "immediate",
+        "options": ["Option 1", "Option 2"]
+    },
+    "event10": {
+        "title": "Event Title 10",
+        "description": "Some event caused by previous event",
+        "resolveType": "extended"
+    },
+    "event11": {
+        "title":  "Event Title 11",
+        "description": "Some event that needs to be immediately resolved",
+        "resolveType": "immediate",
+        "options": ["Option 1", "Option 2"]
+    },
+    "event12": {
+        "title": "Event Title 12",
+        "description": "Some event that needs to be resolved by end of round",
+        "resolveType": "endOfRound",
+        "options": ["Option 1", "Option 2"]
+    },
+    "event13": {
+        "title": "Event Title 13",
+        "description": "Some event that causes another event",
+        "resolveType": "extended"
+    },
+    "event14": {
+        "title": "Event Title 14",
+        "description": "Some event that needs to be immediately resolved",
+        "resolveType": "immediate",
+        "options": ["Option 1", "Option 2"]
+    },
+    "event15": {
+        "title": "Event Title 15",
+        "description": "Some event caused by previous event",
+        "resolveType": "extended"
+    },
+    "event16": {
+        "title":  "Event Title 16",
+        "description": "Some event that needs to be immediately resolved",
+        "resolveType": "immediate",
+        "options": ["Option 1", "Option 2"]
+    },
+    "event17": {
+        "title": "Event Title 17",
+        "description": "Some event that needs to be resolved by end of round",
+        "resolveType": "endOfRound",
+        "options": ["Option 1", "Option 2"]
+    },
+    "event18": {
+        "title": "Event Title 18",
+        "description": "Some event that causes another event",
+        "resolveType": "extended"
+    },
+    "event19": {
+        "title": "Event Title 19",
+        "description": "Some event that needs to be immediately resolved",
+        "resolveType": "immediate",
+        "options": ["Option 1", "Option 2"]
+    },
+    "event20": {
+        "title": "Event Title 20",
+        "description": "Some event caused by previous event",
+        "resolveType": "extended"
+    }
+}]

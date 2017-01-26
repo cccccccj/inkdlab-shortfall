@@ -1,0 +1,72 @@
+#container {
+    position: absolute;
+    padding: 5px;
+    min-width: 90%;
+    min-height: 90%;
+}
+
+#tabList {
+    list-style-type: none;
+    border-bottom: 1px solid #75ACBD;
+}
+
+.tab {
+    font-size: 0.9em;
+    display: inline-block;
+    background-color: #AAD8E5; 
+    padding: 0.3em;
+    margin: 0;
+    border: 1px solid #75ACBD; 
+    border-radius: 5px 5px 1px 1px;
+}
+
+.tab:hover {
+    background-color: #82B3C2;
+    cursor: pointer;
+}
+
+.active {
+    background-color: #C7E0AD; 
+    border: 1px solid #9DBD7D; 
+}
+
+.active:hover {
+    background-color: #C7E0AD; 
+    border: 1px solid #9DBD7D; 
+    cursor: default;
+}
+
+.hidden {
+    display: none;
+}
+
+.online, .offline, .computer { 
+    width: 10px;
+    height: 10px;
+}
+
+.closeButton {
+    background-image: url('shared/images/close.png');
+    background-size: 16px 16px;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 16px;
+    height: 16px;
+    border-radius: 8px;
+    border: none;
+    outline: none;  
+}
+
+#companyList {
+    list-style-type: none;
+}
+
+.company {
+    cursor: pointer;
+    font-size: 0.85em;
+    padding: 5px;
+}
+
+.company:hover {
+    background-color: beige;
+}

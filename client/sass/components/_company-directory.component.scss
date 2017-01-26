@@ -1,0 +1,74 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+
+    &__item {
+        display: inline-block;
+        max-width: 250px;
+        border-radius: 3px;
+        padding: 5px;
+        margin-bottom: 10px;
+        font-size: 1rem;
+        color: $white;
+        background-color: $secondary-accent-color;
+    }
+}
+
+.nav {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    list-style-type: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1rem;
+    letter-spacing: 0.0525rem;
+    //nav elements
+    &__item {
+        font-size: 0.7rem;
+        display: inline-block; 
+        padding: 0.5em;
+        margin: 0;
+        transition: ease 1s;
+    }
+
+    &__item:first-child {
+        display: inline-block; 
+        border-radius: 8px 0 0 8px;
+    }
+
+    &__item:last-child {
+        display: inline-block; 
+        border-radius: 0 8px 8px 0;
+    }
+    //states of nav elements
+    &__item--green {
+        background-color: $component-nav-bg;
+        color: $component-nav-text;
+        border: 1px solid $component-nav-border;
+    }
+
+    &__item:hover {
+        background-color: $component-nav-hover;
+        cursor: pointer;
+    }
+
+    &__item--active {
+        color: $component-nav-text-active;
+        background-color: $component-nav-bg-active;
+        border: 1px solid $component-nav-border-active;
+    }
+
+    &__item--active:hover {
+        cursor: default;
+    }
+}
+.hidden {
+    display: none;
+}

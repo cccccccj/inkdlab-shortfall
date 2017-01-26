@@ -1,0 +1,24 @@
+<div class="chat-component chat__container" id = "container">
+    <!-- Tabs -->
+    <ul class="chat-component navtab" id = "tabList">
+        <li *ngFor = "let company of chatCompanies" class = "chat-component navtab__item navtab__item--orange" [class.navtab__item--active] = "activeTab == company" (click) = "changeTab(company)">
+            <span *ngIf = "company != 'Public'">
+                <online-status [company] = "company"></online-status>
+            </span>
+            {{company}}
+            <button *ngIf = "company != 'Public' && company != 'Admin'" class = "chat-component chat__btn-close" (click) = "closeTab(company)"></button>
+        </li><li [class.navtab__item--active] = "activeTab == 'new'" class = "chat-component navtab__item navtab__item--orange" (click) = "changeTab('new')">+</li>
+    </ul>
+    
+    <!-- Chat Tab Contents -->
+    <chat-tab *ngFor = "let company of chatCompanies" [class.hidden] = "activeTab != company" [withCompany] = "company" [NewChat] = "newChat[company]"></chat-tab>   
+    
+    <!-- New Tab Contents -->
+    <ul class="chat-component companylist" id = "companyList">
+        <!-- Company List -->
+        <li *ngFor = "let company of otherCompanies" class = "chat-component companylist__item" [class.hidden] = "activeTab != 'new'" (click) = "newTab(company)">
+            <online-status [company] = "company"></online-status>
+            {{company}}
+        </li>
+    </ul>
+</div>

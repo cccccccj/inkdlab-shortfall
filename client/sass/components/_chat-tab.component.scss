@@ -1,0 +1,143 @@
+.chat-tab__container {
+    width: 100%;
+    min-width: 350px;
+    padding: 15px 10px;
+    border-radius: 5px;
+    background-color: $chat-container-background;
+    // -moz-box-shadow: inset 0 0 50px #fff;
+    // -webkit-box-shadow: inset 0 0 50px #fff;
+    // box-shadow: inset 0 0 50px #fff;   
+}
+
+.chat-tab__msgbox {
+    display: block;
+    height: 350px;
+    overflow-y: scroll;
+    padding: 25px;
+    border-radius: 10px;
+    background-color: $chat-container-background;
+    margin-bottom: 25px;
+//     -moz-box-shadow: inset 0 0 10px #fff;
+//     -webkit-box-shadow: inset 0 0 10px #fff;
+//     box-shadow: inset 0 0 10px #fff;
+}
+.chat-tab__msgbox::-webkit-scrollbar {
+    background-color: $chat-container-background;
+    border-radius: 3px;
+}
+.chat-tab__msgbox::-webkit-scrollbar-thumb {
+    background-color: $chat-container-background;
+    border: 1px solid $chat-scrollbar-divider;
+    border-radius: 3px;
+    // -moz-box-shadow: inset 0 0 10px #fff;
+    // -webkit-box-shadow: inset 0 0 10px #fff;
+    // box-shadow: inset 0 0 10px #fff;
+}
+.chat-tab__msgbox::-webkit-scrollbar-track {
+    background-color: $chat-scroollbar-track;
+    border-radius: 3px;
+}
+.chat-tab__msgwrapper {
+    width: 100%;
+    clear: both;
+    margin-bottom: 6px;
+}
+
+.chat-tab__photoWrapper {
+    width: 55px;
+    height: 55px;
+    padding: 2px;
+    border-radius: 50px;
+    border: 2px solid $chat-photo-border;
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+.chat-tab__photo {
+    width: 100%;
+    height: 100%;
+}
+
+.chat-tab__msg {
+    margin-left: 100px;
+    padding: 12px;
+    border-radius: 10px;
+	font-style: normal;
+    color: $chat-msg-text;
+    font-size: 13px;
+    line-height: 1.50em;  
+    letter-spacing: 2px;
+    margin-top: 3px;
+    position: relative;
+    background: $chat-msg-background;
+
+   //  background: -webkit-linear-gradient(left, #198CFF , #2ece79); /* For Safari 5.1 to 6.0 */
+  	// background: -o-linear-gradient(right, #198CFF, #2ece79); For Opera 11.1 to 12.0
+  	// background: -moz-linear-gradient(right, #198CFF, #2ece79); /* For Firefox 3.6 to 15 */
+  	// background: linear-gradient(to right, #198CFF , #2ece79); /* Standard syntax */
+}
+
+.chat-tab__msg::before {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 13px;
+    left: -23px;
+    border-bottom: 12px solid transparent;
+    border-top: 12px solid transparent;
+    border-right: 23px solid $chat-msg-background;
+}
+
+.chat-tab__msg__username {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.chat-tab__textbox {
+    background-color: $chat-textbox-background;
+    color: $chat-textbox-color;
+    font-size: 1rem;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    margin-bottom: -25px;
+    padding: 10px;
+    border: 0;
+    margin: 0;
+    padding-right: 0;
+    border-radius: 10px;
+    // -moz-box-shadow: inset 0 0 8px #fff;
+    // -webkit-box-shadow: inset 0 0 8px #fff;
+    // box-shadow: inset 0 0 8px #fff;
+    outline: none;
+    resize: none;
+}
+.chat-tab__textbox::-webkit-placeholder{
+    color: #fff;
+} 
+// #title {
+//     text-align: center;
+//     font-size:25px;
+//     display: inline center;
+//     margin-bottom: 25px;
+//     color: #333;
+//     text-shadow: 0px 1px 0px rgb(255,255,255);
+// }
+// #status {
+//     color: #333;
+//     padding: 10px;
+//     font-weight: bold;
+//     text-align: center;
+// }
+
+// #status span {
+//     font-weight: normal;
+//     color: #2bb026;
+// }

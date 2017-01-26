@@ -1,0 +1,69 @@
+//Default button
+@mixin btn ($width, $color-bg, $color-hover, $color-text) {
+	width: $width;
+  	border-radius: 5px;
+  	outline: none;
+  	border: none;
+
+	background: $color-bg;
+	color: $color-text;
+	  
+	padding: 10px 15px;
+	text-decoration: none;
+
+	cursor: pointer;
+
+	box-shadow: inset 0 0 0 0 $color-hover;
+	transition: all ease 0.8s;
+	
+	&:hover {
+		box-shadow: inset $width + 100px 0 0 0 $color-hover;
+    	color: $color-text;
+	}
+}
+
+//Cover images
+@mixin cover($img-url) {
+	height: 100%;
+  	min-height: 100%;
+  	background: url($img-url);
+  	background-repeat: no-repeat;
+  	background-size: cover;
+}
+
+//Jumbotron widget home
+@mixin widget ($color, $color-heading, $font-heading, $font-color-heading) {
+	background: $color;
+  	width: 50%;
+  	height: auto;
+  	overflow: hidden;
+  	border-radius: 5px;
+  	position: relative;
+  	box-shadow: 0 8px 20px -6px #000;
+  	font-family: $font-home-text;
+  	
+	&__heading {
+	background: $color-heading;
+	color: $font-color-heading;
+
+	font-family: $font-heading;
+	font-size: 1.5em;
+	text-align: center;
+	text-transform: uppercase;
+	font-weight: bold;
+	padding: 1.5em;
+	}
+
+	&__body {
+	display: flex;
+	}
+
+	&__left {
+	flex-basis: 50%;
+	text-align: center;
+	}
+	&__right {
+	flex-basis: 50%;
+	text-align: center;
+	}
+}

@@ -1,0 +1,295 @@
+@import "abstracts/_index.scss";
+@import "base/_index.scss";
+@import "components/_index.scss";
+@import "layout/_index.scss";
+@import "pages/_index.scss";
+
+
+// #chat-app-wrapper {
+//     width: 500px;
+//     margin: 50px;
+//     padding: 25px;
+//     background-color: #198CFF;
+//     border-radius: 25px;
+// }
+
+// #chat-app-header {
+//     width: 100%;
+//     text-align: center;
+//     margin-top: -5px;
+//     margin-bottom: 25px;
+//     color: #333;
+// }
+
+// input,
+// textare
+// button,
+// select {
+//     font-size: 18px;
+// }
+
+// input {
+//     width: 475px;
+//     padding: 10px;
+//     margin-bottom: 25px;
+//     border-radius: 10px;
+//     outline: none;
+//     border: 0;
+// }
+
+// // input:focus {
+// //     outline: 0;
+// //     border: 3px #198CFF;
+// //     border-radius: 10px;
+// //     box-shadow: 0 0 10px #198CFF;
+// // }
+
+// select {
+// 	width: 490px;
+// 	height: 40px;
+//     padding: 10px;
+//     margin-bottom: 25px;
+//     outline: none;
+//     border: 0;
+//     color: grey;
+// }
+
+// select:focus {
+//     outline: 0;
+//     border: 3px #198CFF;
+//     box-shadow: 0 0 10px #198CFF;
+// }
+
+// #photo_option {
+//     width: auto;
+//     margin-right: 15px;
+// }
+
+// #photo_input {
+//     display: none;
+// }
+
+// #submit_button {
+//     display: block;
+//     width: 150px;
+//     height: 40px;
+//     border-radius: 15px;
+//     text-align: center;
+//     color: #fff;
+//     margin: 0 auto;
+//     background-color: #198CFF;
+//     border: 0;
+//     outline: 0;
+// }
+
+// #chat-login-wrapper {
+//     width: 500px;
+//     margin: 75px auto;
+//     padding: 25px;
+//     background-color: #bbb;
+//     border-radius: 15px;
+// }
+
+// #chat-login-wrapper h1 {
+//     color: #333;
+//     text-align: center;
+//     margin-bottom: 20px;
+// }
+
+// .chat-footer {
+//     text-align: center;
+//     margin-top: 25px;
+// }
+
+
+// /* ========== CODE FOR CHAT =============== */
+
+// .chat-app {
+//     width: 30%;
+//     min-width: 350px;
+//     margin: 50px auto 0 auto;
+//     padding: 25px 50px;
+//     border-radius: 20px;
+//     background-color: #bbb;
+//     -moz-box-shadow: inset 0 0 50px #000;
+//     -webkit-box-shadow: inset 0 0 50px #000;
+//     box-shadow: inset 0 0 50px #000;
+    
+// }
+
+// #title-before {
+//     text-align: center;
+//     display: inline center;
+//     font-size:25px;
+//     margin-bottom: 25px;
+//     color: #333;
+   
+// }
+
+// #chat-title {
+//     text-align: center;
+//     font-size:25px;
+//     display: inline center;
+//     margin-bottom: 25px;
+//     color: #333;
+//     text-shadow: 0px 1px 0px rgb(255,255,255);
+// }
+
+// .chat-messages {
+//     display: block;
+//     height: 300px;
+//     overflow-y: scroll;
+//     padding: 25px;
+//     border-radius: 10px;
+//     background-color: #f7f7f7;
+//     margin-bottom: 25px;
+//     -moz-box-shadow: inset 0 0 10px #000;
+//     -webkit-box-shadow: inset 0 0 10px #000;
+//     box-shadow: inset 0 0 10px #000;
+// }
+
+// .chat-app textarea {
+//     -webkit-box-sizing: border-box;
+//     -moz-box-sizing: border-box;
+//     box-sizing: border-box;
+//     width: 100%;
+//     max-width: 100%;
+//     margin: 0 auto;
+//     margin-bottom: -25px;
+//     padding: 10px;
+//     border-top: 0;
+//     margin: 0;
+//     padding-right: 0;
+//     border-radius: 10px;
+//     -moz-box-shadow: inset 0 0 5px #333;
+//     -webkit-box-shadow: inset 0 0 5px #333;
+//     box-shadow: inset 0 0 5px #333;
+//     outline: none;
+// }
+
+// .chat-status {
+//     color: #333;
+//     padding: 10px;
+//     font-weight: bold;
+//     text-align: center;
+// }
+
+// .chat-status span {
+//     font-weight: normal;
+//     color: #2bb026;
+// }
+
+
+// /* Individual Message Styling */
+
+// .chat-wrapper {
+//     width: 100%;
+//     clear: both;
+//     margin-bottom: 6px;
+// }
+
+// .pic-wrapper {
+//     width: 60px;
+//     height: 60px;
+//     border-radius: 50px;
+//     float: left;
+//     margin-right: 10px;
+//     margin-bottom: 15px;
+//     overflow: hidden;
+// }
+
+// .chat-message {
+//     margin-left: 100px;
+//     padding: 12px;
+//     border-radius: 10px;
+// 	font-style: normal;
+//     color: white;
+//     font-size: 13px;
+//     line-height: 1.50em;  
+//     letter-spacing: 2px;
+//     margin-top: 3px;
+//     position: relative;
+//     background: #198CFF; /* For browsers that do not support gradients */
+// 	background: -webkit-linear-gradient(left, #198CFF , #2ece79); /* For Safari 5.1 to 6.0 */
+//   	background: -o-linear-gradient(right, #198CFF, #2ece79); /* For Opera 11.1 to 12.0 */
+//   	background: -moz-linear-gradient(right, #198CFF, #2ece79); /* For Firefox 3.6 to 15 */
+//   	background: linear-gradient(to right, #198CFF , #2ece79); /* Standard syntax */
+// }
+
+// .chat-message::before {
+//     content: "";
+//     width: 0;
+//     height: 0;
+//     position: absolute;
+//     top: 13px;
+//     left: -23px;
+//     border-bottom: 12px solid transparent;
+//     border-top: 12px solid transparent;
+//     border-right: 23px solid #198CFF;
+// }
+
+// .chat-message span {
+//     display: block;
+//     margin-bottom: 10px;
+//     font-weight: bold;
+// }
+
+.hidden {
+    display: none;
+}
+
+/* slider */
+.main {
+  width: 100%;
+}
+
+#percent{
+	display: inline;
+	float: center;
+	margin-bottom: 20px;
+}
+
+#finance{
+	position: right;
+	width:80%;
+}
+
+#green{
+	position: right;
+	width:80%;
+	margin-left:13px;
+}
+
+#social{
+	position: right;
+	width:80%;
+	margin-left:13px;
+}
+
+.slider-control {
+  height: 1em;
+  padding-top: .5em;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.slider {
+  display: center;
+  background: #198CFF;
+  height: 2px;
+  border: 1px solid #198CFF;
+  
+}
+
+.slider-handle {
+  height: 1em;
+  width: 1em;
+  border: 1px solid #198CFF;
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;  
+}
+
+.slider-handle:hover {
+  background: cyan;
+}

@@ -1,0 +1,99 @@
+//Load color pallete
+$primary-color-darkest: #0D47A1; //blue darkest
+$primary-color-dark:   #1976D2; //blue dark
+$primary-color: #2196F3; //blue
+$primary-color-light:  #BBDEFB; //blue light
+$primary-color-text:   #FFFFFF; //white
+
+$primary-text-color:   #212121; //black
+$secondary-text-color-dark: #34495e; //grey dark
+$secondary-text-color: #757575; //grey
+$primary-divider-color: #BDBDBD; //grey light
+$secondary-divider-color: #ffffff; //white
+
+$primary-select-color: #73bbf7; //blue light
+$primary-color-focus: #F9E89F; //yellow light 1
+
+$accent-color-light: #f8e287; //yellow light 2
+$accent-color: #FFC107; //yellow
+$accent-color-dark: #FF8F00; //orange dark
+$secondary-accent-color: #8e44ad; //pink
+
+//Specific colors
+$red-light: #ed7669;
+$green-emerald-light: #7ee2a8;
+$black: #000;
+$white: #fff;
+$transparent: none;
+
+
+//--------Variables for homepage-------//
+
+$background-main-color: $primary-color;
+$background-secundary-color: $white;
+
+$background-heading-color: $primary-color-dark;
+$background-focus-color: $primary-color-focus;
+$text-home-color: $primary-text-color;
+
+//-----Variables for shortfall theme(Simone)-------//
+
+//General
+$background-color: $primary-color-text;
+
+//Topbar
+$color-topbar: $primary-color-dark;
+$color-btn-topbar: $accent-color;
+$color-btn-text-topbar: $primary-color-text;
+$color-title-topbar: $primary-color-text;
+$color-btn-hover-topbar: $accent-color-dark;
+$color-btn-border-topbar: $primary-color;
+
+//Round display
+$color-round: $primary-color-light;
+$color-text-round: $secondary-text-color;
+
+//Bottom bar
+$color-bottombar: $primary-color-dark;
+
+//Windows
+$background-color-head-window: $primary-color;
+$background-color-body-window: $white;
+$border-color-window: $primary-color;
+
+$color-overlay-window: $primary-divider-color;
+$color-shadow-window: $primary-divider-color;
+
+//------Variables for components--------//
+
+//Defaut navigation
+$component-nav-bg: $accent-color;
+$component-nav-text: $primary-color-text;
+$component-nav-border: $accent-color;
+$component-nav-hover: $transparent;
+
+//Active navigation
+$component-nav-text-active: $primary-color-text;
+$component-nav-bg-active: $accent-color-dark;
+$component-nav-border-active: $accent-color-dark;
+
+//Top
+$component-top-title: $primary-text-color;
+$component-top-bottomborder: $primary-color;
+
+//Tables
+$component-table-header: $primary-color-light;
+$component-table-row: $primary-color-light;
+
+//-------Variables for chat component------//
+
+$chat-container-background: $primary-color-light;
+$chat-photo-border: $primary-text-color;
+$chat-msg-text: $primary-text-color;
+$chat-msg-background: $secondary-text-color;
+
+$chat-textbox-background: $secondary-text-color;
+$chat-textbox-color: $primary-color-text;
+
+$chat-scroollbar-track: $primary-text-color;
+$chat-scrollbar-divider: $secondary-divider-color;

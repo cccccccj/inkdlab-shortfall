@@ -1,0 +1,12 @@
+.button {
+    background-color: #BAA29B;
+    background-image: url('shared/images/chat.png');
+    background-size: 20px 16px;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 40px;
+    height: 20px;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+}

@@ -1,0 +1,43 @@
+[{
+    "currentRound": 1,
+    "totalRounds": 12,
+    "timerDefaultValue": 10,
+    "timerStepValue": 10,
+    "initialBalance": 1000000,
+    "transferStepValue": 5000,
+    "quantityStepValue": 1000,
+    "greenScoreStepValue": 10,
+    "priceStepValue": 10,
+    "priceDefaultValue": 70,
+    "roundQuantityTo": 1000,
+    "roundGreenScoreTo": 10,
+    "roundTransferTo": 1000,
+    "roundPriceTo": 1,
+    "payOnAccept": 100,
+    "profilePresets": [
+        {
+            "name": "Capitalist",
+            "financial": 70,
+            "green": 5,
+            "social": 25
+        },
+        {
+            "name": "Environmentalist",
+            "financial": 15,
+            "green": 65,
+            "social": 20
+        },
+        {
+            "name": "Socialist",
+            "financial": 25,
+            "green": 25,
+            "social": 50
+        },
+        {
+            "name": "Custom",
+            "financial": 33,
+            "green": 34,
+            "social": 33
+        }
+    ]
+}]

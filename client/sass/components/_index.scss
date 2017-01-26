@@ -1,0 +1,53 @@
+//Index components
+@import "buttons";
+@import "chat-tab.component";
+@import "chat.component";
+
+.sales-component {
+	@import "sales.component";
+}
+.s-orders-tab-component {
+	@import "s-orders-tab.component";
+}
+.s-negotiations-tab-component {
+	@import "s-negotiations-tab.component";
+}
+.purchasing-component {
+	@import "purchasing.component";
+}
+.p-orders-tab-component {
+	@import "p-orders-tab.component";
+}
+.p-negotiations-tab-component {
+	@import "p-negotiations-tab.component";
+}
+.current-event-component {
+	@import "current-event.component";
+}
+.banking-component {
+	@import "banking.component";
+}
+.ledger-tab-component {
+	@import "ledger-tab.component";
+}
+.transfer-tab-component {
+	@import "transfer-tab.component";
+}
+.company-directory-component {
+	@import "company-directory.component";
+}
+.my-company-tab-component {
+	@import "my-company-tab.component";
+}
+.other-companies-tab-component {
+	@import "other-companies-tab.component";
+}
+.chat-tab-component {
+	@import "chat-tab.component";
+}
+.chat-component {
+	@import "chat.component";
+}
+.round-manager-component {
+	@import "round-manager.component";
+}

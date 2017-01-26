@@ -1,0 +1,19 @@
+<div class="chat-tab-component chat-tab__container" id = "container">
+        <div class="chat-tab-component chat-tab__msgbox" id = "messagesBox">
+            <div *ngFor = "let chat of chats" class = "chat-tab-component chat-tab__msgwrapper">
+                <div class = "chat-tab-component chat-tab__photoWrapper">
+                    <img src = "../shared/images/chatuser.png" class = "chat-tab-component chat-tab__photo">
+<!--                    <img *ngIf = "chat.photo" [src] = "chat.photo" class = "profile-pic"> -->
+                </div>
+                <div class = "chat-tab-component chat-tab__msg">
+                    <span class="chat-tab-component chat-tab__msg__username" *ngIf = "chat.username == username">You | {{company}}: 
+                    </span>
+                    <span class="chat-tab-component chat-tab__msg__username" *ngIf = "chat.username != username">{{chat.username}} | {{chat.fromCompany}}:
+                    </span>
+                    {{chat.message}}
+                </div>
+            </div>
+        </div>
+        
+        <textarea class="chat-tab-component chat-tab__textbox" id = "textBox" placeholder="Type your message" [(ngModel)] = "message" (keyup.enter) = "onEnter()"></textarea>
+</div>

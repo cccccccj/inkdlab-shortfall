@@ -1,0 +1,45 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    text-align: center;
+}
+
+.round-title {
+    display: block;
+    width: 30%;
+    font-size: 1.3rem;
+    text-align: center;
+    border-radius: 3px;
+    padding: 5px;
+    margin: 20px auto;
+    background-color: $primary-color-light;
+    color: $primary-text-color;
+}
+
+.event-title {
+    font-size: 1rem;
+    text-align: center;
+    margin: 10px;
+    color: $primary-text-color;
+}
+
+.description {
+    font-size: 0.9rem;
+    text-align: center;
+    margin: 20px;
+    color: $secondary-text-color;
+}
+.options {
+    text-align: center;
+    text-transform: uppercase;
+    color: $primary-text-color;
+}
+.btn__option {
+    @include btn (150px, $accent-color, $accent-color-dark, $primary-color-text);
+    font-size: 1rem;
+    margin-right: 5px;
+} 
