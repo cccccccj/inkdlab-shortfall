@@ -31,7 +31,7 @@ var PurchaseOrdersTab = (function () {
             _this.purchaseOrders = data;
             for (var i = 0; i < _this.purchaseOrders.length; i++) {
                 _this.hideDetails[i] = true;
-                var order = _this.purchaseOrders[j];
+                var order = _this.purchaseOrders[i];
                 var shipmentRecord = order.shipmentRecord;
                 for (var j = 0; j < shipmentRecord.length; j++) {
                     if (shipmentRecord[j].status == 'shipped' && order.dueRound == _this.round) {

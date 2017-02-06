@@ -37,7 +37,7 @@ export class PurchaseOrdersTab implements OnInit {
             for(let i = 0; i < this.purchaseOrders.length; i++) {
                 this.hideDetails[i] = true;
                 
-                let order = this.purchaseOrders[j];
+                let order = this.purchaseOrders[i];
                 let shipmentRecord = order.shipmentRecord;
                 for (let j = 0; j < shipmentRecord.length; j++) {
                     if (shipmentRecord[j].status == 'shipped' && order.dueRound == this.round) {
