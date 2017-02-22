@@ -98,7 +98,19 @@ module.exports = function(grunt) {
     			src: 'game.html',
     			dest: '../builds/production/',
     			flatten: true
-    		},            		
+    		},      
+    		{
+    			expand: true,
+    			src: 'setGame.html',
+    			dest: '../builds/production/',
+    			flatten: true
+    		},       
+    		{
+    			expand: true,
+    			src: 'gameLogin.html',
+    			dest: '../builds/production/',
+    			flatten: true
+    		},         	      		
     		{
     			expand: true,
     			src: '../client/node_modules/chart.js/dist/Chart.bundle.min.js',

@@ -8,39 +8,29 @@ var io = require('socket.io').listen(server);
 
 var mongodb = require('mongodb');
 var MongoClient = mongodb.MongoClient;
-//var mongoURI = 'mongodb://localhost:27017/shortfall';
-var mongoURI = 'mongodb://heroku_s1ccnbfm:a8gume9k8ua7fijmdpjkfs0hr4@ds131109.mlab.com:31109/heroku_s1ccnbfm';
-
-app.set('port', (process.env.PORT || 8080));
+var url = 'mongodb://localhost:27017/shortfall';
 
 app.use(express.static(path.join(__dirname, '../client')));
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, '../client', '/index.html'));
 });
 
-server.listen(app.get('port'), function() {
+server.listen(8080, function() {
    console.log('Listening on port %s...', server.address().port); 
 });
 
 var db, users, gameData, events;
-var companies, negotiations, transactions, messages;
+var companies, negotiations, transactions, messages, gamesData;
 var sockets = {};
-var homeSocket, gameSocket, adminSocket;
+var homeSocket, gameSocket, adminSocket, setGameSocket, gameLoginSocket;
 var parts = ['Chassis', 'Exhaust', 'Transmission', 'Engine'];
 
-MongoClient.connect(mongoURI, function(err, database) {
+MongoClient.connect(url, function(err, database) {
     if (err) {
         console.log('Unable to connect to MongoDB server. Error:', err);
         throw err;
     } else {
-        console.log('Connected to MongoDB server.', mongoURI);
-        
-//        app.listen(app.get('port'), function() {
-//            console.log('App running on ', app.get('port'));
-//        });
-//        server.listen(app.get('port'), function() {
-//           console.log('Listening on port %s...', server.address().port); 
-//        });
+        console.log('Connected to MongoDB server.', url);
         
         db = database;
         
@@ -51,6 +41,7 @@ MongoClient.connect(mongoURI, function(err, database) {
         negotiations = db.collection('negotiations');
         transactions = db.collection('transactions');
         messages = db.collection('messages');
+        gamesData = db.collection('gamesData');
         
         var counter = 0; // Counter for company
         
@@ -99,6 +90,62 @@ MongoClient.connect(mongoURI, function(err, database) {
                 });
             });
         });
+        
+        
+        setGameSocket = io.of('/setGame');
+        
+        setGameSocket.on('connection', function (socket) {
+            
+            socket.on('gamesData.setGame', function(data) {
+//                 var taken = [];
+				 
+                gamesData.findOne({gameName: data.gameName}, function(err, doc1) {
+                    if (doc1) {
+                        if (data.password === doc1.password) {
+                            socket.emit('redirect', {gameName: data.gameName});
+                        } else {
+                            socket.emit('setGame.error', 'password');
+                        }
+                    }
+                    
+					else {
+						    socket.emit('setGame.error', 'gameName');
+                    }
+                });
+                if (data.gameType == "New"){
+                    gamesData.insertOne({gameName: data.gameName, password: data.password}, function() {
+                    socket.emit('redirect', {gameName: data.gameName});
+                    });
+                }
+
+             });
+        });
+
+
+
+		gameLoginSocket = io.of('/gameLogin');
+        
+        gameLoginSocket.on('connection', function (socket) {
+            
+            socket.on('gamesData.gameLogin', function(data) {
+                //var taken = [];
+                gamesData.findOne({gameName: data.gameName}, function(err, doc1) {
+                    if (doc1) {
+                        if (data.password === doc1.password) {
+                            socket.emit('redirect', {gameName: data.gameName});
+                        } else {
+                            socket.emit('gameLogin.error', 'password');
+                        }
+                    }
+					else {
+                        socket.emit('gameLogin.error', 'gameName');
+                    }
+                    
+                });
+
+             });
+        });
+
         
 		gameSocket = io.of('/game');
 

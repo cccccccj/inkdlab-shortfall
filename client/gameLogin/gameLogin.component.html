@@ -1,0 +1,35 @@
+<div class="gamelogin-component wrapper">
+<div class="gamelogin-component home-form">
+<form class="gamelogin-component login-form" (ngSubmit) = "gameLogin()" #gameLoginForm = "ngForm">
+
+    <!-- Game Name -->
+    
+    <p><label class = "games" >Enter game name and password!</label></p>
+    
+    <input type = "text" id = "name" [(ngModel)] = "gameName" name = "gameName" placeholder = "Game name" aria-label = "Name of the game" aria-required = "true" autocapitalize = "off" autofocus required>
+
+  	<span *ngIf = "gameNameError"><br>Invalid game name<br></span>
+     
+    <!-- Password -->
+    
+    <br>
+    <input type = "password" id = "password1" [(ngModel)] = "password1" name = "password1" placeholder = "Password" aria-label = "Password" aria-required = "true" required>
+
+    <span *ngIf = "passwordError"><br>Password invalid<br></span>
+            
+    <!-- Confirm Password -->
+	
+<!-- 
+	<br>
+    <input type = "password" id = "password2" [(ngModel)] = "password2" name = "password2" placeholder = "Confirm Password" aria-label = "Confirm password" aria-required = "true" required>
+                
+    
+ -->
+    <!-- Submit button -->
+    
+    <br>
+    <input class="btn--submit" type = "submit" [disabled] = "!gameLoginForm.valid">
+    
+</form>
+</div>
+</div>

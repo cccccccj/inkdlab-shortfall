@@ -16,14 +16,14 @@ export class HomeComponent implements OnInit {
     ngOnInit() {
         // Get reference to login socket
         try {
-            this.socket = io.connect('/home');
+            this.socket = io.connect('http://localhost:8080/home');
         } catch (e) {
             alert('Sorry, we couldn\'t connect. Please try again later \n\n' + e);
         }
         
         this.socket.on('redirect', (data) => {
             sessionStorage.setItem('username', data.username);
-            let href = data.type === 'Player'? 'game.html': 'admin.html';
+            let href = data.type === 'Player'? 'gameLogin.html': 'setGame.html';
             window.location.assign(href);
         });
     }

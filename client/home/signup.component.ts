@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 
+
 @Component({
     selector: 'signup',
     templateUrl: 'home/signup.component.html',

@@ -1,0 +1,36 @@
+<div class="setgame-component wrapper">
+<div class="setgame-component home-form">
+<form class="setgame-component login-form" (ngSubmit) = "setGame()" #setGameForm = "ngForm">
+
+    <!-- Game Type -->
+    
+    <label for = "gameType">New or existing Game</label>
+    <select id = "gameType" [(ngModel)] = "gameType" name = "gameType">
+        <option value = "Existing" selected>Existing Game</option>
+        <option value = "New" selected>New Game</option>
+    </select>
+
+    <!-- Game Name -->
+    <br>
+    <input type = "text" id = "name" [(ngModel)] = "gameName" name = "gameName" placeholder = "Name of the new game" aria-label = "Name of the game" aria-required = "true" autocapitalize = "off" autofocus required>
+
+    <span *ngIf = "gameNameError"><br>Invalid game name </span>
+    <span *ngIf = "gameNameTaken"><br>Game name taken</span>
+
+     
+    <!-- Password -->
+    
+    <br>
+    <input type = "password" id = "password1" [(ngModel)] = "password1" name = "password1" placeholder = "Password" aria-label = "Password" aria-required = "true" required>
+            
+    <span *ngIf = "passwordError"><br>Password invalid<br></span>
+
+    
+
+    <!-- Submit button -->
+    
+    <br>
+    <input class="btn--submit" type = "submit" [disabled] = "!setGameForm.valid">
+</form>
+</div>
+</div>

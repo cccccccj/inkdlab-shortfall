@@ -5,7 +5,9 @@
           "home/*": ["./home/*"],
           "game/*": ["./game/*"],
           "admin/*": ["./admin/*"],
-          "shared/*": ["./shared/*"]
+          "shared/*": ["./shared/*"],
+          "setGame/*": ["./setGame/*"],
+          "gameLogin/*": ["./gameLogin/*"]
       },
       "target": "es5",
       "module": "commonjs",

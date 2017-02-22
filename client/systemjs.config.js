@@ -14,6 +14,8 @@
             'game':                       'game',
             'admin':                      'admin',
             'shared':                     'shared',
+            'setGame':                     'setGame',
+            'gameLogin':                     'gameLogin',
 
             // angular bundles
             '@angular/core': 'npm:@angular/core/bundles/core.umd.js',
@@ -46,6 +48,14 @@
                 defaultExtension: 'js'
             },
             shared: {
+                main: './main.js',
+                defaultExtension: 'js'
+            },
+            setGame: {
+                main: './main.js',
+                defaultExtension: 'js'
+            },
+            gameLogin: {
                 main: './main.js',
                 defaultExtension: 'js'
             },
